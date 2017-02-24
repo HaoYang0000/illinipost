@@ -1,4 +1,4 @@
-<nav id="nav-bar-element" class = "navbar navbar-inverse" > 
+<nav id="nav-bar-element" class = "navbar-inverse" > 
    <div class="navbar-header">
    	  <button type = "button" class = "navbar-toggle" 
          data-toggle = "collapse" data-target = "#navbar-collapse">
@@ -28,6 +28,7 @@
       </ul>
    </div>
 </nav>
+<div style="height: 30px;"></div>
 
 <!-- Change color while hoving -->
 <style type="text/css">
@@ -42,6 +43,9 @@ nav#nav-bar-element a.nav-text-one{
 }
 nav#nav-bar-element li.nav-text-background:hover{
     background-color: #ff6600;
+}
+nav#dropd-menu li.nav-dropd-text-background:hover{
+    background-color: blue;
 }
 nav#nav-bar-element{
     position:fixed;

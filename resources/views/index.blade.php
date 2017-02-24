@@ -2,7 +2,6 @@
 <html lang="{{ config('app.locale') }}">
 	@include('layout.header')
 	@include('layout.navi_bar')
-	<div style="height: 30px;"></div>
     <body>
     	<div>This is Body</div>
     	<div>This is Body</div>
