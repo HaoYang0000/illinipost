@@ -11,6 +11,15 @@
 |
 */
 
+//Direct to the default page
 Route::get('/', function () {
     return view('index');
 });
+
+
+//Direct user to create a post 
+Route::get('/create_post', 'PostController@create_post_page');
+Route::post('/create_post', 'PostController@create_post');
+
+//Direct user to check all post 
+Route::get('/check_post', 'PostController@check_post_page');

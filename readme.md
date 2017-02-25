@@ -1,40 +1,76 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+1. About MVC model: All the model which is the first "M" in MVC is the entity that convert the data from data base to a object. So we can query some information about one type of things. The model is in laravel's folder illinipost\app. The example I created is User.php. The second "V" represents view, which is the html file people will see on their browser. All the views are under illinipost\resources\views\ directory. The controller represnets by the "C", which are the functions will be called after the users send some requerst to the server. The server will read their request with some input and return the related view to the user. It will firstly go to illinipost\routes\web.php, and that web.php file will call different controller to handle it. 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+****************************************************************************************
+		Pass data from page to database example:
 
-## About Laravel
+		1. Click "Make a post" button on navigation bar
+		2. Check file in directory illinipost\resources\views\post\create_post_page.blae.php
+		3. (Where the form will go to?) Check illinipost\routes\web.php:
+			The "post" method combine with "create_post" action, so it will go to use
+			the "PostController" in the directory illinipost\app\Http\Controllers\PostController.php
+			There is a function called "create_post", which is also mentioned in the routes. 
+		4. That function will then create the post data, which will be also stored in the database
+			because we called Post::create function inside the function. 
+		5. If your database set up correctly, you should be able to see that data is in your database.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+		Pass data from database to page example:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+		1. Go to directory illinipost\resources\views\post\post_page.blae.php
+		2. Go to PostController which mentioned above. Check the function "check_post_page".
+			The "$posts = Post::all()" will read through all the data from Post table, and stored as a variable.
+			Then it will be passed to the page use the "compact" laravel build in method. 
+		3. Then the page will create one row for each data using foreach structure. 
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+****************************************************************************************
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+2. Useful command for laravel(under directory illinipost):
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+To create a model with it's controller: php artisan make:model MODEL_NAME -c
+example(create model without controler): php artisan make:model User
+example: php artisan make:model User -c
 
-## Contributing
+To run the local server(default port is 8000): php artisan serve --port=PORTNUMBER
+example(default port): php artisan serve
+example: php artisan serve --port=8080
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+To run migration(which is the workflow for laravel to create table in database, I will mention it in the future): php artisan make:migration MIGRATION_NAME
+example: php artisan make:migration create_User_table
+example: php artisan make:migration add_column_user_name_to_User_table
+example: php artisan make:migration delete_column_user_blahblahblah_to_User_table
+(All the migrations are in the directory illinipost\database\migrations\ )
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+******Important*****
+After all the migration part, you will need to run: php artisan migrate
+to make all the migrations are actually effect your database. 
 
-## License
+******How to set up database in laravel*****
+Laravel has a file called .env which is the config file of laravel running locally on your computer. Normally it won't be pushed to Github so don't worry about change the data in that file. Make sure your Mysql server is running in your computer and the port number, database name is correct. The user name and passpword vary from different person. 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Example of setting up database(One portion of .env file, you can leave other part alone for now): 
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=DB
+DB_USERNAME=root
+DB_PASSWORD=root
+
+
+****************** Helpful link *****************
+Front end:
+CSS: https://www.w3schools.com/css/
+Bootstrap: http://getbootstrap.com/css/   https://www.w3schools.com/bootstrap/default.asp
+Colors: https://www.w3schools.com/colors/colors_picker.asp
+Javascript: https://www.w3schools.com/js/default.asp
+Jquery: https://www.w3schools.com/jquery/default.asp
+Html: https://www.w3schools.com/html/default.asp
+
+Back end: 
+php: https://www.w3schools.com/php/
+sql: https://www.w3schools.com/sql/default.asp
+
+Laravel(5.4): https://laracasts.com/series/laravel-from-scratch-2017
+
+
+

@@ -1,0 +1,43 @@
+nav#nav-bar-element{
+	background-color: #003d66;
+}
+nav#nav-bar-element a.navbar-brand{
+    color: #ff6600;
+}
+nav#nav-bar-element a.nav-text-one{
+    color: white;
+}
+nav#nav-bar-element li.nav-text-background:hover{
+    background-color: #ff6600;
+}
+nav#nav-bar-element{
+    position:fixed;
+    width: 100%;
+}
+nav#nav-bar-element a.create-post-button{
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ff8000;
+    border: 2px solid #ff8000;
+    border-radius: 15px;
+    box-shadow: 0px 3px #b3b3cc;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    margin-left: 1%;
+}
+nav#nav-bar-element a.create-post-button:hover {
+  background-color: #2db300;
+}
+nav#nav-bar-element a.create-post-button:active {
+  background-color: #2db300;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+nav#nav-bar-element input.search-bar{
+    width:300px;
+}
