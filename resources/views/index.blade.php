@@ -4,6 +4,7 @@
 
 	@include('layout.navi_bar')
 
+
     @yield('body')
     
     @include('layout.footer')
