@@ -30,7 +30,8 @@
       	 <li class="nav-text-background"><a class="nav-text-one" href="#">Food</a></li>
       </ul>
       <a class="btn navbar-btn create-post-button" href="./create_post">Make a post</a>
-      <a class="btn navbar-btn create-post-button" href="./check_post">Check posts</a>
+      <a class="btn navbar-btn create-post-button" href="./check_post">Check posts</a>\
+      <!--Search bar-->
       <form class="navbar-form navbar-right">
         <div class="input-group">
           <input type="text" class="search-bar form-control" placeholder="Search">
@@ -41,6 +42,92 @@
           </div>
         </div>
       </form>
+      <!-- Login bar-->
+      <div id="wrap">
+        <div id="regbar">
+          <div id="navthing">
+            <h2><a href="#" id="loginform">Login</a> | <a href="#" id="registerform">Register</a></h2>
+          <div class="login">
+              <div class="arrow-up"></div>
+              <div class="formholder">
+                <div class="randompad">
+                   <fieldset>
+                     <form id="user_login" method="post" action="user_login">
+                     {!! csrf_field() !!}
+                     <label name="email">Email</label>
+                     <input type="email" name="email" value="" />
+                     <label name="password">Password</label>
+                     <input type="password" name="password"/>
+                     <input type="submit" value="Login" />
+                    </form>
+                   </fieldset>
+                </div>
+              </div>
+              </div>
+              <div class="arrow-up-two"></div>
+              <div class="formholder">
+                <div class="randompad">
+                   <fieldset>
+                     <form id="user_register" method="post" action="user_register">
+                     {!! csrf_field() !!}
+                     <label name="email">Email</label>
+                     <input type="email" name="email" value="" />
+                     <label name="password">Password</label>
+                     <input type="password" name="password"/>
+                     <label name="name">Name</label>
+                     <input type="name" name="name"/>
+                     <input type="submit" value="Login" />
+                    </form>
+                   </fieldset>
+                </div>
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
    </div>
 </nav>
 <div style="height: 60px;"></div>
+
+
+<!-- Move to public folder later -->
+<script type="text/javascript">
+  
+  $('input[type="submit"]').mousedown(function(){
+  $(this).css('background', '#2ecc71');
+  });
+  $('input[type="submit"]').mouseup(function(){
+    $(this).css('background', '#1abc9c');
+  });
+
+  $('#loginform').click(function(){
+    $('.login').fadeToggle('slow');
+    $(this).toggleClass('green');
+  });
+
+  $('#registerform').click(function(){
+    $('.register').fadeToggle('slow');
+    $(this).toggleClass('green');
+  });
+
+
+$(document).mouseup(function (e)
+{
+    var container = $(".login");
+    var container2 = $(".register");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container.hide();
+        $('#loginform').removeClass('green');
+    }
+
+    if (!container2.is(e.target) // if the target of the click isn't the container...
+        && container2.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container2.hide();
+        $('#registerform').removeClass('green');
+    }
+});
+</script>

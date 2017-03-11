@@ -38,6 +38,12 @@ fieldset {
   display: none;
 }
 
+.register {
+  position: relative;
+  width: 350px;
+  display: none;
+}
+
 .arrow-up {
   width: 0;
   height: 0;
