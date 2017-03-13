@@ -18,6 +18,8 @@ class User extends Model
      *
      * @var array
      */
+
+    
     protected $fillable = [
                           'password',
                            'email',
