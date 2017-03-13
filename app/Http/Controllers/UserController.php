@@ -52,6 +52,12 @@ class UserController extends Controller
     	User::create([
 	            'email' => $request['email'],
 	            'name'=> $request['name'],
+                'age' => $request['age'],
+                'gender'=> $request['gender'],
+                'firstName'=> $request['firstName'],
+                'lastName'=> $request['lastName'],
+                'password'=>$request['password'],
+
         ]);
 
         return view('post.create_post_page');

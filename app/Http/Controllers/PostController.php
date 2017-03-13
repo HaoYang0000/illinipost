@@ -25,6 +25,7 @@ class PostController extends Controller
         	]);
 
         	$posts = Post::all();
+            
         	return view('post.post_page',compact('posts'));
 
         }

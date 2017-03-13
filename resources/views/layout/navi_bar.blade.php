@@ -70,13 +70,23 @@
                    <fieldset>
                      <form id="user_register" method="post" action="user_register">
                      {!! csrf_field() !!}
-                     <label name="email">Email</label>
+                     <label name="firstname">First Name</label> 
+                     <input type="firstname" name="firstName"/>
+                     <label name="lastName">Last Name</label> 
+                     <input type="lastName" name="lastName"/> 
+                     <label name="email">Email</label> 
                      <input type="email" name="email" value="" />
                      <label name="password">Password</label>
                      <input type="password" name="password"/>
-                     <label name="name">Name</label>
-                     <input type="name" name="name"/>
-                     <input type="submit" value="Login" />
+                      <label name="age">Age</label>
+                     <input type="age" name="age"/>
+                      <br>
+                     <input type="radio" name="gender" value="0"> Male
+                    <input type="radio" name="gender" value="1"> Female<br>
+                     
+                      
+                     
+                     <input type="submit" value="Register" />
                     </form>
                    </fieldset>
                 </div>
