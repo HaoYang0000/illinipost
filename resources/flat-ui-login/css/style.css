@@ -97,13 +97,13 @@ fieldset {
 }
 
 .green {
-  color: #1abc9c;
+  color: orange;
 }
 
 a {
-  color: #ecf0f1;
+  color: #FF4500  ;
   text-decoration: none;
 }
 a:hover {
-  color: #1abc9c;
+  color: white;
 }

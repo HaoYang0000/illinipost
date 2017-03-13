@@ -3,16 +3,22 @@ nav#nav-bar-element{
 }
 nav#nav-bar-element a.navbar-brand{
     color: #ff6600;
+    font-size: 23px;
+    font-family:cursive;
+    font-weight: bold;
 }
 nav#nav-bar-element a.nav-text-one{
     color: white;
+    font-family: Charcoal;
 }
 nav#nav-bar-element li.nav-text-background:hover{
     background-color: #ff6600;
+    font-family: Charcoal;
 }
 nav#nav-bar-element{
     position:fixed;
     width: 100%;
+    font-family: Charcoal;
 }
 nav#nav-bar-element a.create-post-button{
     display: inline-block;
@@ -31,10 +37,10 @@ nav#nav-bar-element a.create-post-button{
     margin-left: 1%;
 }
 nav#nav-bar-element a.create-post-button:hover {
-  background-color: #2db300;
+  background-color:   #1E90FF;
 }
 nav#nav-bar-element a.create-post-button:active {
-  background-color: #2db300;
+  background-color:   #483D8B;
   box-shadow: 0 3px #666;
   transform: translateY(4px);
 }
@@ -52,25 +58,29 @@ body {
   margin: 0;
   padding: 0;
   font-family: Sans-serif;
-  background: #2c3e50;
+  background: #FDF5E6 ;
 }
 
 #wrap {
-  margin: 0 auto 30px;
+  margin: 0 auto 10px;
+`
 }
 
 #regbar {
-  height: 67px;
-  background: #34495e;
+  height: 30px;
+
 }
 
 #navthing {
-  margin-left: 50px;
+  position:absolute;
+  right: 10px;
+  margin-top: -6px;
+  font-weight:bold;
 }
 
-h2 {
-  padding: 20px;
-  color: #ecf0f1;
+h5 {
+  padding: 5px;
+  color: orange;
 }
 
 fieldset {
@@ -78,9 +88,11 @@ fieldset {
 }
 
 .login {
-  position: relative;
+  position:relative;
   width: 350px;
   display: none;
+  font-weight:bold;
+
 }
 .register {
   position: relative;
@@ -93,7 +105,7 @@ fieldset {
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-bottom: 15px solid #ECF0F1;
-  left: 10%;
+  left: 2%;
   position: absolute;
   top: -10px;
 }
@@ -103,7 +115,7 @@ fieldset {
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-bottom: 15px solid #ECF0F1;
-  left: 50%;
+  left: 25%;
   position: absolute;
   top: -10px;
 }
@@ -201,5 +213,14 @@ a {
 }
 a:hover {
   color: #1abc9c;
+}
+.footer {
+  bottom: 0px; 
+  position:fixed;
+  height:10%;
+  width:100%;
+  color: white;
+  text-align: center;
+  background-color:#003d66;
 }
 
