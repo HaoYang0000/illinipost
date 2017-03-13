@@ -20,7 +20,7 @@ Route::get('/', function () {
 //Direct user to create a post 
 Route::get('/create_post', 'PostController@create_post_page');
 Route::post('/create_post', 'PostController@create_post');
-
+Route::post('/delete_post', 'PostController@delete_post_page');
 //Direct user to check all post 
 Route::get('/check_post', 'PostController@check_post_page');
 

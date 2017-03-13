@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 //Import Post model to the controller
 use App\Post;
+use DB;
 
 class PostController extends Controller
 {
@@ -16,8 +17,8 @@ class PostController extends Controller
     */
     public function create_post(Request $request)
     {   
-        echo $request;
     	$user = $request->user();
+        echo 'joijoj'.$user;
     	//If the user is not registerd 
         if($user == NULL){
             $posts = Post::all();
@@ -59,6 +60,13 @@ class PostController extends Controller
     */
     public function check_post_page()
     {   
+        $posts = Post::all();
+        return view('post.post_page',compact('posts'));
+    }
+
+    public function delete_post_page(Request $request)
+    {
+        DB::table('Posts')->where('post_id', '=', $request['post_id'])->delete();
         $posts = Post::all();
         return view('post.post_page',compact('posts'));
     }

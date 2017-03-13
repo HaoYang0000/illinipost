@@ -60,9 +60,7 @@ class UserController extends Controller
 
         ]);
 
-        return view('post.create_post_page');
-
-        	
+        return view('post.create_post_page');  	
         
     }
 }
