@@ -64,7 +64,8 @@
                 </div>
               </div>
               </div>
-              <div class="arrow-up-two"></div>
+          <div class="register">
+              <div class="arrow-up_2"></div>
               <div class="formholder">
                 <div class="randompad">
                    <fieldset>

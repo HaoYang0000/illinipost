@@ -16,14 +16,15 @@ class PostController extends Controller
     */
     public function create_post(Request $request)
     {   
+        echo $request;
     	$user = $request->user();
     	//If the user is not registerd 
         if($user == NULL){
+            $posts = Post::all();
         	Post::create([
 	            'title' => $request['title'],
 	            'content'=> $request['content'],
         	]);
-
         	$posts = Post::all();
             
         	return view('post.post_page',compact('posts'));
@@ -61,8 +62,5 @@ class PostController extends Controller
         $posts = Post::all();
         return view('post.post_page',compact('posts'));
     }
-
-    
-
 
 }
