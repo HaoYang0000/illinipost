@@ -26,6 +26,7 @@ class PostController extends Controller
 	            'content'=> $request['content'],
         	]);
         	$posts = Post::all();
+            
         	return view('post.post_page',compact('posts'));
 
         }
