@@ -82,7 +82,11 @@ fieldset {
   width: 350px;
   display: none;
 }
-
+.register {
+  position: relative;
+  width: 350px;
+  display: none;
+}
 .arrow-up {
   width: 0;
   height: 0;
@@ -93,6 +97,16 @@ fieldset {
   position: absolute;
   top: -10px;
 }
+.arrow-up_2 {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid #ECF0F1;
+  left: 50%;
+  position: absolute;
+  top: -10px;
+}
 
 .formholder {
   background: #ecf0f1;
@@ -100,6 +114,7 @@ fieldset {
   border-radius: 5px;
   padding-top: 5px;
 }
+
 .formholder input[type="email"], .formholder input[type="password"] {
   padding: 7px 5px;
   margin: 10px 0;
