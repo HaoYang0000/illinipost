@@ -13,7 +13,22 @@
         </div>
         <label for="content">Content:</label>
         <textarea class="form-control" rows="5" id="content" name="content"></textarea>
-        <button type="submit" class="btn btn-default">Submit</button>
     </form>
+     <button class="btn btn-default" onclick="checkpost()">Submit</button>
 </div>
+
+<script type="text/javascript">
+    function checkpost() {
+        var title = document.getElementById("title");
+        var body = document.getElementById("content");
+        if(title.value.length <= 0 || body.value.length <= 0){
+            alert("The title or body cannot be empty!");
+            return;
+        }
+        else{
+            document.getElementById("create_post_form").submit();
+            return;
+        }
+    }
+</script>
 @endSection
