@@ -81,13 +81,13 @@
                      <input type="password" name="password"/>
                       <label name="age">Age</label>
                      <input type="age" name="age"/>
-                      <br>
+                      
                      <input type="radio" name="gender" value="0"> Male
                     <input type="radio" name="gender" value="1"> Female<br>
-                     
+                     <br>
                       
                      
-                     <input type="submit" value="Register" />
+                     <input type="submit" value="Sign Up" />
                     </form>
                    </fieldset>
                 </div>
