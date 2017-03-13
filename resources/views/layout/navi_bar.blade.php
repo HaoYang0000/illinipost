@@ -87,7 +87,7 @@
                      <br>
                       
                      
-                     <input type="submit" value="Register" />
+                     <input type="submit" value="Sign Up" />
                     </form>
                    </fieldset>
                 </div>
