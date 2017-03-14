@@ -18,7 +18,7 @@ class UserController extends Controller
     */
     public function login(Request $request)
     {   
-    	$user = DB::table('Users')->where('email','=',$request['email'])->get();
+    	$user = DB::table('users')->where('email','=',$request['email'])->get();
 
         // create our user data for the authentication
         $userdata = array(
@@ -89,6 +89,30 @@ class UserController extends Controller
         ]);
 
         return view('post.create_post_page');  	
+        
+    }
+
+    public function get_user_info(Request $request)
+    {   
+        
+        $user = $request->user();
+
+        return view('user.editUserInfo',compact('user'));   
+        
+    }
+
+    public function update_user_info(Request $request)
+    {   
+        
+        $user = $request->user();
+        DB::table('users')->where('id', $user->id)
+        ->update(['firstName' => $request['firstName'],
+                  'lastName' => $request['lastName'],
+                  'email' => $request['email'],
+                  'age' => $request['age'],
+            ]);
+
+        return redirect('editUserInfo');  
         
     }
 }

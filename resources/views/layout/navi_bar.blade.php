@@ -43,6 +43,7 @@
         </div>
       </form>
       <!-- Login bar-->
+      <!-- Not login-->
       @if (Auth::guest())
       <div id="wrap">
         <div id="regbar">
@@ -155,12 +156,18 @@
         </div>
       </div>
       @else
+      <!-- logged in-->
       <h2 type="text">Hello,{{ Auth::user()->firstName }}</h2>
+      <button onclick="editUserInfo({{ Auth::user()->id }})">edit</button>
+      <form id="edit_user_info" action="editUserInfo" method="GET">
+      <input id="user_id" name="user_id" hidden="true">
+      </form>
       <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
+
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>                            
@@ -173,6 +180,10 @@
 
 <!-- Move to public folder later -->
 <script type="text/javascript">
+function editUserInfo(id){
+  document.getElementById('user_id').value = id;
+  document.getElementById('edit_user_info').submit();
+}
   
   $('input[type="submit"]').mousedown(function(){
   $(this).css('background', '#2ecc71');
