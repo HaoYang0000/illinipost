@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Post;
+use Auth;
 use DB;
 
 class UserController extends Controller
@@ -19,28 +20,55 @@ class UserController extends Controller
     {   
     	$user = DB::table('Users')->where('email','=',$request['email'])->get();
 
-    	//If the user is not registerd 
-    	//echo strlen($user) ;
-        if(strlen($user) != 2){
-        	
-        	$posts = Post::all();
-        	return view('post.post_page',compact('posts'));
+        // create our user data for the authentication
+        $userdata = array(
+            'email'     => $request['email'],
+            'password'  => $request['password']
+        );
+
+        // attempt to do the login
+        if (Auth::attempt($userdata)) {
+
+            // validation successful!
+            // redirect them to the secure section or whatever
+            // return Redirect::to('secure');
+            // for now we'll just echo success (even though echoing in a controller is bad)
+            echo 'SUCCESS!';
+
+        } else {        
+
+            // validation not successful, send back to form 
+            echo 'FAILED!';
 
         }
-        //If the user is registerd 
-        else{
-        	//Link user with posts
-        	/*
-        	Post::create([
-	            'user_id' => $request['NUID'],
-	            'title' => $request['title'],
-	            'content'=> $request['content'],
-        	]);
-        	return view('welcome');
-        	*/
+
+    	// //If the user is not registerd 
+    	// //echo strlen($user) ;
+     //    if(strlen($user) != 2){
         	
-        	return view('post.create_post_page');
-        }
+     //    	$posts = Post::all();
+     //    	return view('post.post_page',compact('posts'));
+
+     //    }
+     //    //If the user is registerd 
+     //    else{
+     //    	//Link user with posts
+     //    	/*
+     //    	Post::create([
+	    //         'user_id' => $request['NUID'],
+	    //         'title' => $request['title'],
+	    //         'content'=> $request['content'],
+     //    	]);
+     //    	return view('welcome');
+     //    	*/
+        	
+     //    	return view('post.create_post_page');
+     //    }
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
     /**
