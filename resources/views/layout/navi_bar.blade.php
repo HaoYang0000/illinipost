@@ -143,8 +143,8 @@
                         <label name="age">Age</label>
                         <input type="age" name="age"/>
 
-                        <input type="radio" name="gender" value="0"> Male
-                        <input type="radio" name="gender" value="1"> Female<br>
+                        <input type="radio" name="gender" value="1"> Male
+                        <input type="radio" name="gender" value="2"> Female<br>
                         <br>
                         <input type="submit" value="Sign Up" />
                     </form>

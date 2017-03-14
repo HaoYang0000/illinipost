@@ -18,13 +18,13 @@ class PostController extends Controller
     public function create_post(Request $request)
     {   
     	$user = $request->user();
-        echo 'joijoj'.$user;
     	//If the user is not registerd 
         if($user == NULL){
             $posts = Post::all();
-        	Post::create([
+            Post::create([
 	            'title' => $request['title'],
 	            'content'=> $request['content'],
+                'category'=> $request['category'],
         	]);
         	$posts = Post::all();
             
