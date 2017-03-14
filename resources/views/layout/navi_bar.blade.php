@@ -157,22 +157,23 @@
       </div>
       @else
       <!-- logged in-->
-      <h2 type="text">Hello,{{ Auth::user()->firstName }}</h2>
-      <button onclick="editUserInfo({{ Auth::user()->id }})">edit</button>
-      <form id="edit_user_info" action="editUserInfo" method="GET">
-      <input id="user_id" name="user_id" hidden="true">
-      </form>
-      <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>                            
+      <div class="profile">
+        <div class="profilesub1">
+          &nbsp&nbsp
+        </div>
+        <div class="profilesub2">
+            <a >|&nbsp&nbspGreeting,&nbsp{{ Auth::user()->firstName }}</a>
+            <button style="padding: 0; border: none; background: none;"onclick="editUserInfo({{ Auth::user()->id }})">&nbsp&nbsp|&nbsp&nbspEDIT&nbsp&nbsp|&nbsp&nbsp</button>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">LOGOUT&nbsp&nbsp|</a>
+        </div>
+        <form id="edit_user_info" action="editUserInfo" method="GET">
+            <input id="user_id" name="user_id" hidden="true">
+        </form>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>                            
+      </div>
       @endif
-      
    </div>
 </nav>
 <div style="height: 60px;"></div>
