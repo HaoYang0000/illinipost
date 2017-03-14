@@ -58,7 +58,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: Sans-serif;
-  background: white ;
+  background-image: url("http://icloudpicture.com/wp-content/uploads/2015/11/Shanghai-4K-Wallpaper.jpeg");
+  background-size: cover;
 }
 
 #wrap {
@@ -86,6 +87,29 @@ h5 {
 fieldset {
   border: none;
 }
+
+.profile{
+  width: 10%;
+  padding-bottom: 1%;
+  color: white;
+  font-size: 15px;
+}
+
+.profilesub2{
+  font-size: 15px;
+  position: absolute;
+  right: 1%;
+  display: inline-block;
+  top: 65%;
+}
+
+.profilesub1{
+  color: white;
+  font-size: 15px;
+  font-family:Charcoal;
+  margin-left: 740%;
+}
+
 
 .login {
   position:relative;
@@ -214,6 +238,7 @@ a {
 a:hover {
   color: #1abc9c;
 }
+
 .footer {
   bottom: 0px; 
   position:fixed;
