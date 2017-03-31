@@ -68,9 +68,8 @@ body {
 }
 
 #regbar {
-  position: absolute;
-  right: 25%;
-  top: 18%;
+  height: 30px;
+
 }
 
 #navthing {
@@ -80,13 +79,7 @@ body {
   font-weight:bold;
 }
 
-.searchbar{
-  position:absolute;
-  right: 0%;
-  top: 5%;
-}
-
-.searchbar p {
+h5 {
   padding: 5px;
   color: orange;
 }

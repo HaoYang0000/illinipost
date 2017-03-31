@@ -14,7 +14,7 @@
 			{!! csrf_field() !!}
 			<input id="post_id" name="post_id" hidden> 
         </form>
-        <input type="button" name="delete" onclick="submit({{ $post->post_id }})" value="Delete"/> 
+        <input type="button" name="delete" onclick="submit({{ $post->post_id }})" value="Delete"/>  
 	@endforeach
   
 </div>
