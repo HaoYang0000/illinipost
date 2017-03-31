@@ -18,13 +18,13 @@ class PostController extends Controller
     public function create_post(Request $request)
     {   
     	$user = $request->user();
-        echo 'joijoj'.$user;
     	//If the user is not registerd 
         if($user == NULL){
             $posts = Post::all();
-        	Post::create([
+            Post::create([
 	            'title' => $request['title'],
 	            'content'=> $request['content'],
+                'category'=> $request['category'],
         	]);
         	$posts = Post::all();
             
@@ -33,15 +33,15 @@ class PostController extends Controller
         }
         //If the user is registerd 
         else{
-        	//Link user with posts
-        	/*
-        	Post::create([
-	            'user_id' => $request['NUID'],
-	            'title' => $request['title'],
-	            'content'=> $request['content'],
-        	]);
-        	return view('welcome');
-        	*/
+        	$posts = Post::all();
+            Post::create([
+                'title' => $request['title'],
+                'content'=> $request['content'],
+                'category'=> $request['category'],
+            ]);
+            $posts = Post::all();
+            
+            return view('post.post_page',compact('posts'));
         }
     }
 

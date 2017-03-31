@@ -13,6 +13,8 @@
         </div>
         <label for="content">Content:</label>
         <textarea class="form-control" rows="5" id="content" name="content"></textarea>
+        <input type="radio" name="category" value="1"> Food
+        <input type="radio" name="category" value="2"> Academic
     </form>
      <button class="btn btn-default" onclick="checkpost()">Submit</button>
 </div>

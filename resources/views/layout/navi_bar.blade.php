@@ -43,6 +43,8 @@
         </div>
       </form>
       <!-- Login bar-->
+      <!-- Not login-->
+      @if (Auth::guest())
       <div id="wrap">
         <div id="regbar">
           <div id="navthing">
@@ -52,7 +54,7 @@
               <div class="formholder">
                 <div class="randompad">
                    <fieldset>
-                     <form id="user_login" method="post" action="user_login">
+                     <form id="user_login" role="form" method="POST" action="{{ route('login') }}">
                      {!! csrf_field() !!}
                      <label name="email">Email</label>
                      <input type="email" name="email" value="" />
@@ -69,25 +71,82 @@
               <div class="formholder">
                 <div class="randompad">
                    <fieldset>
-                     <form id="user_register" method="post" action="user_register">
-                     {!! csrf_field() !!}
-                     <label name="firstname">First Name</label> 
-                     <input type="firstname" name="firstName"/>
-                     <label name="lastName">Last Name</label> 
-                     <input type="lastName" name="lastName"/> 
-                     <label name="email">Email</label> 
-                     <input type="email" name="email" value="" />
+                     <!-- <form id="user_register" role="form" method="POST" action="{{ route('register') }}">
+                     {{ csrf_field() }}
+                     
+                            <label name="firstname">First Name</label> 
+                                <input type="firstname" name="firstName"/>
+                                <label name="lastName">Last Name</label> 
+                               <input type="lastName" name="lastName"/> 
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <label name="email">Email</label> 
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                     
+                     
+                     
+                     
                      <label name="password">Password</label>
                      <input type="password" name="password"/>
                       <label name="age">Age</label>
                      <input type="age" name="age"/>
-                      
                      <input type="radio" name="gender" value="0"> Male
                     <input type="radio" name="gender" value="1"> Female<br>
                      <br>
-                      
-                     
                      <input type="submit" value="Sign Up" />
+                    </form> -->
+                    <form  id = "user_register" role="form" method="POST" action="{{ route('register') }}">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name">Name</label>
+                            <input id="name" type="firstname"  name="name" value="{{ old('name') }}" required autofocus>
+
+                            @if ($errors->has('name'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email">E-Mail Address</label>
+                                <input id="email" type="email" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password">Password</label>
+                                <input id="password" type="password" name="password" required>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password-confirm">Confirm Password</label>
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                        </div>
+
+                        <label name="age">Age</label>
+                        <input type="age" name="age"/>
+
+                        <input type="radio" name="gender" value="1"> Male
+                        <input type="radio" name="gender" value="2"> Female<br>
+                        <br>
+                        <input type="submit" value="Sign Up" />
                     </form>
                    </fieldset>
                 </div>
@@ -96,6 +155,25 @@
           </div>
         </div>
       </div>
+      @else
+      <!-- logged in-->
+      <div class="profile">
+        <div class="profilesub1">
+          &nbsp&nbsp
+        </div>
+        <div class="profilesub2">
+            <a >|&nbsp&nbspGreeting,&nbsp{{ Auth::user()->firstName }}</a>
+            <button style="padding: 0; border: none; background: none;"onclick="editUserInfo({{ Auth::user()->id }})">&nbsp&nbsp|&nbsp&nbspEDIT&nbsp&nbsp|&nbsp&nbsp</button>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">LOGOUT&nbsp&nbsp|</a>
+        </div>
+        <form id="edit_user_info" action="editUserInfo" method="GET">
+            <input id="user_id" name="user_id" hidden="true">
+        </form>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>                            
+      </div>
+      @endif
    </div>
 </nav>
 <div style="height: 60px;"></div>
@@ -103,6 +181,10 @@
 
 <!-- Move to public folder later -->
 <script type="text/javascript">
+function editUserInfo(id){
+  document.getElementById('user_id').value = id;
+  document.getElementById('edit_user_info').submit();
+}
   
   $('input[type="submit"]').mousedown(function(){
   $(this).css('background', '#2ecc71');

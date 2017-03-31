@@ -4,3 +4,38 @@ div#post-page{
 	margin-right: 10%;
 	width: 80%;
 }
+
+.edit{
+	padding-top: 1%;
+	margin: 0 auto;
+	margin-top: 10%;
+	background: #ecf0f1;
+  	width: 350px;
+  	height: 430px;
+  	border-radius: 5px;
+}
+
+.edit input{
+	  margin: 0 auto;
+	  display: block;
+	  text-align: center;
+	  font-size: 18px;
+	  border-radius: 5px;
+	  border: none;
+	  -webkit-transition: 0.3s linear;
+	  -moz-transition: 0.3s linear;
+	  -o-transition: 0.3s linear;
+	  transition: 0.3s linear;
+}
+
+.edit input[name="user_id"]{
+	display: none;
+}
+
+.edit label{
+	  text-align: center;
+	  margin: 0 auto;
+	  display: block;
+	  margin-top: 1%; 
+	  font-size: 18px;
+}

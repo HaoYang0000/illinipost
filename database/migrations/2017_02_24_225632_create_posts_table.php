@@ -13,10 +13,11 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Posts', function (Blueprint $table) {
-            $table->increments('post_id');
+        Schema::create('posts', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('user_id')->nullable();
             $table->string('title')->nullable();
+            $table->enum('category', ['Food', 'Academic'])->nullable(); 
             $table->text('content')->nullable();
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Posts');
+        Schema::dropIfExists('posts');
     }
 }
