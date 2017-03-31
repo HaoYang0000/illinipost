@@ -32,7 +32,7 @@
       <a class="btn navbar-btn create-post-button" href="./create_post">Make a post</a>
       <a class="btn navbar-btn create-post-button" href="./check_post">Check posts</a>\
       <!--Search bar-->
-      <form class="navbar-form navbar-right">
+      <form class="navbar-form searchbar">
         <div class="input-group">
           <input type="text" class="search-bar form-control" placeholder="Search">
           <div class="input-group-btn">
@@ -46,7 +46,7 @@
       <div id="wrap">
         <div id="regbar">
           <div id="navthing">
-              <h5><a  href="#" id="loginform">Login</a>&nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp<a href="#" id="registerform">Register</a> </h5>
+              <p><a  href="#" id="loginform">Login</a>&nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp<a href="#" id="registerform">Register</a> </p>
           <div class="login">
               <div class="arrow-up"></div>
               <div class="formholder">
