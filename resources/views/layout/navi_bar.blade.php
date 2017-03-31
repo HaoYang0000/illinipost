@@ -16,7 +16,7 @@
    <div class = "collapse navbar-collapse" id="navbar-collapse">
   
       <ul class = "nav navbar-nav">
-         <li class="nav-text-background"><a class="nav-text-one" href="/">HOME</a></li> 
+         <li class="nav-text-background"><a class="nav-text-one" href="/home">HOME</a></li> 
          <li class="nav-text-background dropdown">
           <a class="dropdown-toggle nav-text-one" data-toggle="dropdown" href="#">Q&A
           <span class="caret"></span></a>

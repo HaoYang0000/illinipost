@@ -15,7 +15,10 @@
 Route::get('/', function () {
     return view('index');
 });
-
+//Direct user to home
+Route::get('/home', function () {
+    return view('post.home_page');
+});
 
 //Direct user to create a post 
 Route::get('/create_post', 'PostController@create_post_page');
@@ -33,5 +36,3 @@ Route::get('/editUserInfo', 'UserController@get_user_info');
 Route::post('/editUserInfo', 'UserController@update_user_info');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');
