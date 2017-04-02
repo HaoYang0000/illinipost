@@ -26,6 +26,7 @@ Route::post('/create_post', 'PostController@create_post');
 Route::post('/delete_post', 'PostController@delete_post_page');
 //Direct user to check all post 
 Route::get('/check_post', 'PostController@check_post_page');
+Route::get('/check_post_page', 'PostController@check_post_page');
 
 //User login
 // Route::post('/user_login', 'UserController@login');
