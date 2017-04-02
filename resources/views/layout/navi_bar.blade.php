@@ -103,9 +103,31 @@
                     <form  id = "user_register" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}" hidden>
                             <label for="name">Name</label>
-                            <input id="name" type="firstname"  name="name" value="{{ old('name') }}" required autofocus>
+                            <input id="name" type="firstname"  name="name" value="test" required autofocus>
+
+                            @if ($errors->has('name'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name">Fist Name</label>
+                            <input id="name" type="firstname"  name="firstName" value="{{ old('name') }}" required autofocus>
+
+                            @if ($errors->has('name'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name">Last Name</label>
+                            <input id="name" type="firstname"  name="lastName" value="{{ old('name') }}" required autofocus>
 
                             @if ($errors->has('name'))
                             <span class="help-block">
