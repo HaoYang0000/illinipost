@@ -61,15 +61,45 @@ class PostController extends Controller
     *   Function to direct to the create post page
     *   the parameters doesn't matter for now
     */
-    public function check_post_page()
+
+    public function sort_objects_by_total($a, $b) {
+    if($a->updated_at == $b->updated_at){ return 0 ; }
+    return ($a->updated_at < $b->updated_at) ? -1 : 1;
+}
+
+    public function check_post_page(Request $request)
     {   
         $posts = Post::all();
+        $option = $request['filter'];
+        if($option == 1){
+            //$posts = $posts->sortByDesc('updated_at');
+            $posts = $posts->filter(function ($post) {
+                return $post->category == "Food";
+            });
+        }
+
+        if($option == 2){
+            
+               
+             //$posts->contains('category',"Food");
+             $posts = $posts->filter(function ($post) {
+                return $post->category == "Academic";
+            });
+
+                //$posts->all();
+
+            
+        }
+
+        if($option == 3){
+            $posts = $posts->sortByDesc('updated_at');
+        }
         return view('post.post_page',compact('posts'));
     }
 
     public function delete_post_page(Request $request)
     {
-        DB::table('Posts')->where('post_id', '=', $request['post_id'])->delete();
+        DB::table('posts')->where('id', '=', $request['post_id'])->delete();
         $posts = Post::all();
         return view('post.post_page',compact('posts'));
     }
