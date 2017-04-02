@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 //Import Post model to the controller
 use App\Post;
+use App\User;
 use DB;
 
 class PostController extends Controller
@@ -38,6 +39,8 @@ class PostController extends Controller
                 'title' => $request['title'],
                 'content'=> $request['content'],
                 'category'=> $request['category'],
+                'user_first_name'=> $user->firstName,
+                'user_last_name'=> $user->lastName,
             ]);
             $posts = Post::all();
             
