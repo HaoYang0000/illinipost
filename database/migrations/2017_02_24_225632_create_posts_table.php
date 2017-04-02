@@ -17,8 +17,11 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->nullable();
             $table->string('title')->nullable();
+            $table->string('user_first_name')->nullable();
+            $table->string('user_last_name')->nullable();
             $table->enum('category', ['Food', 'Academic'])->nullable(); 
             $table->text('content')->nullable();
+
             $table->timestamps();
         });
     }
