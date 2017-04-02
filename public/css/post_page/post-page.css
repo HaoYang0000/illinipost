@@ -3,6 +3,24 @@ div#post-page{
 	margin-left: 10%;
 	margin-right: 10%;
 	width: 80%;
+	border-color: transparent;
+	background-color: transparent;
+}
+div#post-page input {
+	margin-bottom: 5px;
+	background-color: #FF8C00;
+	font-family:Charcoal;
+	color:white;
+	border-radius: 10px;
+	width:7vw;
+}
+.panel-heading{
+	background-color: 	#6495ED
+	margin-top:10px;
+
+}
+.panel-body {
+	background-color: #FFFFF0;
 }
 
 .edit{
