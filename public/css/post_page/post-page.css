@@ -6,6 +6,7 @@ div#post-page{
 	border-color: transparent;
 	background-color: transparent;
 }
+
 div#post-page input {
 	margin-bottom: 5px;
 	background-color: #FF8C00;
@@ -14,11 +15,25 @@ div#post-page input {
 	border-radius: 10px;
 	width:7vw;
 }
+
+div#FoodAcademic input {
+	margin-bottom: 5px;
+	font-family:Charcoal;
+	border-radius: 2px;
+	width:15px;
+}
+
+div #FoodAcademic {
+	color: orange;
+	font-weight: bold;
+}
+
 .panel-heading{
 	background-color: 	#6495ED
 	margin-top:10px;
 
 }
+
 .panel-body {
 	background-color: #FFFFF0;
 }

@@ -5,9 +5,13 @@
 <link rel="stylesheet" href="{{ URL::asset('/css/post_page/post-page.css') }}">
 
 <div id="post-page" class="panel panel-default">
-
+		<br>
+ 		
+ 		<h1 style="font-family: cursive; font-weight: bold;color: #ff8000;"> Greetings from League of Legends</h1>
+ 		<br>
+ 		<br>
 	@foreach ($posts as $post)
-	
+		
 		<div class="panel-heading">
     		<h3 class="panel-title">{{ $post->title }}</h3>
   		</div>
@@ -21,9 +25,16 @@
 			<input id="post_id" name="post_id" hidden> 
         </form>
          
- 
+ 		<br>
+ 		<br>
+ 		<br>
+ 		
 	@endforeach
-
+	<br> 
+	<br> 
+	<br>
+	<br>
+	
 </div>
 <script type="text/javascript">
 function submit(id){
