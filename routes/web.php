@@ -35,4 +35,10 @@ Route::get('/check_post', 'PostController@check_post_page');
 Route::get('/editUserInfo', 'UserController@get_user_info');
 Route::post('/editUserInfo', 'UserController@update_user_info');
 
+//Crawler test
+Route::get('/crawlertest',  function () {
+    return view('test.craawler');
+});
+
+
 Auth::routes();
