@@ -45,6 +45,7 @@
               <li class="divider"></li>
               <li><a href="#all">All</a></li>
           </ul>
+          
           <input type="hidden" name="search_param" value="all" id="search_param">  
           <input type="text" class="search-bar form-control" name="content">
           <div class="input-group-btn">

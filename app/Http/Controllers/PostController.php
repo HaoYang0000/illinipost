@@ -101,9 +101,11 @@ class PostController extends Controller
     }
 
     public function search(Request $request){
+
+        
         #echo $request['content'];
         #echo $request['search_param'];
-        
+
         if($request['search_param'] == 'all'){
             $posts = DB::table('posts')->where('title', 'like', '%'.$request['content'].'%')->get();
         }
