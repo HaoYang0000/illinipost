@@ -90,12 +90,7 @@ class PostController extends Controller
                 return $post->category == "Academic";
 
             });
-            $filter_type = 2; 
-
-                //$posts->all();
-
-
-            });     
+            $filter_type = 2;  
 
         }
 
@@ -122,6 +117,7 @@ class PostController extends Controller
         
         #echo $request['content'];
         #echo $request['search_param'];
+        $filter_type = 1; 
 
         if($request['search_param'] == 'all'){
             $posts = DB::table('posts')->where('title', 'like', '%'.$request['content'].'%')->get();
@@ -142,7 +138,7 @@ class PostController extends Controller
             $posts = DB::table('posts')->where('user_first_name', 'like', '%'.$request['content'].'%', 'or', 'user_last_name', 'like', '%'.$request['content'].'%')->get();
         }
 
-        return view('post.post_page',compact('posts'));
+        return view('post.post_page',compact('posts','filter_type'));
     }
 
 }
