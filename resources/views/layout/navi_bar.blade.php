@@ -66,7 +66,7 @@
                 </div>
               </div>
               </div>
-          <div class="register">
+          <div class="register" style="overflow-y: scroll; height: 400px;">
               <div class="arrow-up_2"></div>
               <div class="formholder">
                 <div class="randompad">
@@ -114,24 +114,24 @@
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">Fist Name</label>
-                            <input id="name" type="firstname"  name="firstName" value="{{ old('name') }}" required autofocus>
+                        <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+                            <label for="firstName">firstName</label>
+                            <input id="firstName" type="firstName"  name="firstName" value="{{ old('firstName') }}" required autofocus>
 
-                            @if ($errors->has('name'))
+                            @if ($errors->has('firstName'))
                             <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
+                            <strong>{{ $errors->first('firstName') }}</strong>
                             </span>
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">Last Name</label>
-                            <input id="name" type="firstname"  name="lastName" value="{{ old('name') }}" required autofocus>
+                        <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+                            <label for="lastName">lastName</label>
+                            <input id="lastName" type="lastName"  name="lastName" value="{{ old('lastName') }}" required autofocus>
 
-                            @if ($errors->has('name'))
+                            @if ($errors->has('lastName'))
                             <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
+                            <strong>{{ $errors->first('lastName') }}</strong>
                             </span>
                             @endif
                         </div>
