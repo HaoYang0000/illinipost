@@ -32,9 +32,10 @@
       <a class="btn navbar-btn create-post-button" href="./create_post">Make a post</a>
       <a class="btn navbar-btn create-post-button" href="./check_post">Check posts</a>\
       <!--Search bar-->
-      <form class="navbar-form navbar-right">
+      <form class="navbar-form navbar-right" role="form" method="POST" action="search">
+        {!! csrf_field() !!}
         <div class="input-group">
-          <input type="text" class="search-bar form-control" placeholder="Search">
+          <input type="text" class="search-bar form-control" name="content">
           <div class="input-group-btn">
             <button class="btn btn-default" type="submit">
               <i class="glyphicon glyphicon-search"></i>
