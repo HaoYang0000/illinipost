@@ -19,6 +19,7 @@ class PostController extends Controller
     public function create_post(Request $request)
     {   
     	$user = $request->user();
+        $filter_type = 1; 
     	//If the user is not registerd 
         if($user == NULL){
             $posts = Post::all();
@@ -29,7 +30,7 @@ class PostController extends Controller
         	]);
         	$posts = Post::all();
             
-        	return view('post.post_page',compact('posts'));
+        	return view('post.post_page',compact('posts','filter_type'));
 
         }
         //If the user is registerd 
@@ -44,7 +45,8 @@ class PostController extends Controller
             ]);
             $posts = Post::all();
             
-            return view('post.post_page',compact('posts'));
+            
+            return view('post.post_page',compact('posts','filter_type'));
         }
     }
 
@@ -70,12 +72,14 @@ class PostController extends Controller
     public function check_post_page(Request $request)
     {   
         $posts = Post::all();
+        $filter_type = 1;
         $option = $request['filter'];
         if($option == 1){
             //$posts = $posts->sortByDesc('updated_at');
             $posts = $posts->filter(function ($post) {
                 return $post->category == "Food";
             });
+            $filter_type = 1; 
         }
 
         if($option == 2){
@@ -84,13 +88,26 @@ class PostController extends Controller
              //$posts->contains('category',"Food");
              $posts = $posts->filter(function ($post) {
                 return $post->category == "Academic";
+
+            });
+            $filter_type = 2; 
+
+                //$posts->all();
+
+
             });     
+
         }
 
-        if($option == 3){
+        if($option == 3){ // change to aq! 
+              $posts = $posts->filter(function ($post) {
+                return $post->category == "Q&A";
+            });
             $posts = $posts->sortByDesc('updated_at');
+            $filter_type = 3; 
         }
-        return view('post.post_page',compact('posts'));
+
+        return view('post.post_page',compact('posts', 'filter_type'));
     }
 
     public function delete_post_page(Request $request)
