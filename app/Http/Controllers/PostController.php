@@ -88,12 +88,15 @@ class PostController extends Controller
              //$posts->contains('category',"Food");
              $posts = $posts->filter(function ($post) {
                 return $post->category == "Academic";
+
             });
             $filter_type = 2; 
 
                 //$posts->all();
 
-            
+
+            });     
+
         }
 
         if($option == 3){ // change to aq! 
@@ -115,8 +118,28 @@ class PostController extends Controller
     }
 
     public function search(Request $request){
+        #echo $request['content'];
+        #echo $request['search_param'];
         
-        $posts = DB::table('posts')->where('title', 'like', '%'.$request['content'].'%')->get();
+        if($request['search_param'] == 'all'){
+            $posts = DB::table('posts')->where('title', 'like', '%'.$request['content'].'%')->get();
+        }
+
+        if($request['search_param'] == 'title'){
+            $posts = DB::table('posts')->where('title', 'like', '%'.$request['content'].'%', 'or',
+                                               'content', 'like', '%'.$request['content'].'%', 'or',
+                                               'user_first_name', 'like', '%'.$request['content'].'%', 'or',
+                                               'user_last_name', 'like', '%'.$request['content'].'%')->get();
+        }
+
+        if($request['search_param'] == 'content'){
+            $posts = DB::table('posts')->where('content', 'like', '%'.$request['content'].'%')->get();
+        }
+
+        if($request['search_param'] == 'author'){
+            $posts = DB::table('posts')->where('user_first_name', 'like', '%'.$request['content'].'%', 'or', 'user_last_name', 'like', '%'.$request['content'].'%')->get();
+        }
+
         return view('post.post_page',compact('posts'));
     }
 
