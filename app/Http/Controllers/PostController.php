@@ -104,4 +104,10 @@ class PostController extends Controller
         return view('post.post_page',compact('posts'));
     }
 
+    public function search(Request $request){
+        
+        $posts = DB::table('posts')->where('title', 'like', '%'.$request['content'].'%')->get();
+        return view('post.post_page',compact('posts'));
+    }
+
 }

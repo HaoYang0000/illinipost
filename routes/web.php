@@ -36,4 +36,7 @@ Route::get('/check_post_page', 'PostController@check_post_page');
 Route::get('/editUserInfo', 'UserController@get_user_info');
 Route::post('/editUserInfo', 'UserController@update_user_info');
 
+//Search bar
+Route::post('/search','PostController@search');
+
 Auth::routes();
