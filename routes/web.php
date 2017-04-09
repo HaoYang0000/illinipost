@@ -25,8 +25,8 @@ Route::post('/delete_post', 'PostController@delete_post_page');
 Route::get('/check_post', 'PostController@check_post_page');
 
 //User login
-// Route::post('/user_login', 'UserController@login');
-// Route::post('/user_register', 'UserController@register');
+ Route::post('/user_login', 'UserController@login');
+ Route::post('/user_register', 'UserController@register');
 
 //Edit user information
 Route::get('/editUserInfo', 'UserController@get_user_info');

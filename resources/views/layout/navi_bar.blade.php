@@ -1,7 +1,6 @@
 <!-- CSS file -->
 <!-- Under directory illinipost\public\css -->
 <link rel="stylesheet" href="{{ URL::asset('/css/navigation_bar/nav-bar-element.css') }}">
-
 <nav id="nav-bar-element" class = "navbar-inverse" > 
    <div class="navbar-header">
       <button type = "button" class = "navbar-toggle" 
@@ -57,16 +56,16 @@
                      <form id="user_login" role="form" method="POST" action="{{ route('login') }}">
                      {!! csrf_field() !!}
                      <label name="email">Email</label>
-                     <input type="email" name="email" value="" />
+                     <input type="email" name="email" value=""/>
                      <label name="password">Password</label>
-                     <input type="password" name="password"/>
+                     <input type="password" name="password" length="15" />
                      <input type="submit" value="Login" />
                     </form>
                    </fieldset>
                 </div>
               </div>
               </div>
-          <div class="register">
+          <div class="register" style="overflow-y: scroll; height: 400px;">
               <div class="arrow-up_2"></div>
               <div class="formholder">
                 <div class="randompad">
@@ -103,17 +102,26 @@
                     <form  id = "user_register" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">Name</label>
-                            <input id="name" type="firstname"  name="name" value="{{ old('name') }}" required autofocus>
+                        <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">
+                            <label for="fname">FName</label>
+                            <input id="fname" type="firstname"  name="fname" value="{{ old('fname') }}" required autofocus>
 
-                            @if ($errors->has('name'))
+                            @if ($errors->has('fname'))
                             <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
+                            <strong>{{ $errors->first('fname') }}</strong>
                             </span>
                             @endif
                         </div>
+                        <div class="form-group{{ $errors->has('lname') ? ' has-error' : '' }}">
+                            <label for="lname">LName</label>
+                            <input id="lname" type="lastname"  name="lname" value="{{ old('lname') }}" required autofocus>
 
+                            @if ($errors->has('lname'))
+                            <span class="help-block">
+                            <strong>{{ $errors->last('lname') }}</strong>
+                            </span>
+                            @endif
+                        </div>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email">E-Mail Address</label>
                                 <input id="email" type="email" name="email" value="{{ old('email') }}" required>
@@ -127,7 +135,7 @@
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password">Password</label>
-                                <input id="password" type="password" name="password" required>
+                                <input id="password" type="password" name="password" required >
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -177,7 +185,7 @@
    </div>
 </nav>
 <div style="height: 60px;"></div>
-
+</div>
 
 <!-- Move to public folder later -->
 <script type="text/javascript">

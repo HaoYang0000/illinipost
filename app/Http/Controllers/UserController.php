@@ -79,16 +79,17 @@ class UserController extends Controller
     	
     	User::create([
 	            'email' => $request['email'],
-	            'name'=> $request['name'],
+	            'fisrtName'=> $request['fname'],
+              'lastName'=> $request['lname']
                 'age' => $request['age'],
                 'gender'=> $request['gender'],
-                'firstName'=> $request['firstName'],
-                'lastName'=> $request['lastName'],
+                //'firstName'=> $request['firstName'],
+                //'lastName'=> $request['lastName'],
                 'password'=>$request['password'],
 
         ]);
 
-        return view('post.create_post_page');  	
+        return view('post.create_post_page',compact('users'));  	
         
     }
 
@@ -106,8 +107,8 @@ class UserController extends Controller
         
         $user = $request->user();
         DB::table('users')->where('id', $user->id)
-        ->update(['firstName' => $request['firstName'],
-                  'lastName' => $request['lastName'],
+        ->update(['fname' => $request['fname'],
+                  'lname' => $request['lname'],
                   'email' => $request['email'],
                   'age' => $request['age'],
             ]);
