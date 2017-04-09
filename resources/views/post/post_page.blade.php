@@ -13,9 +13,23 @@
 	<form  method="get" action="check_post_page">
 		{!! csrf_field() !!}
 		<select id="filter" name="filter">
+		@if ($filter_type == "1") 
 		<option value="1"  selected>food</option>
-		<option value="2" >academic</option>
+		@else 
+		<option value="1">food</option>
+		@endif 
+		@if ($filter_type == "2") 
+
+		<option value="2" selected>academic</option>
+		@else 
+		<option value="2">academic</option>
+		@endif
+		@if ($filter_type == "3") 
+
+		<option value="3" selected="3">Q&A</option>
+		@else 
 		<option value="3">Q&A</option>
+		@endif
 		</select>
 		<input type="submit" value="Submit" />
 	</form>

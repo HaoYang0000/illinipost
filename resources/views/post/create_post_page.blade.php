@@ -16,6 +16,7 @@
         <div id="FoodAcademic">
             <input type="radio" name="category" value="1"> Food
             <input type="radio" name="category" value="2"> Academic
+            <input type="radio" name="category" value="3"> Q&A
         </div>
     </form>
      <button class="btn btn-default" onclick="checkpost()">Submit</button>
