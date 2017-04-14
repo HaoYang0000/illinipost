@@ -34,7 +34,19 @@
       <!--Search bar-->
       <form class="navbar-form navbar-right" role="form" method="POST" action="search">
         {!! csrf_field() !!}
-        <div class="input-group">
+        <div class="input-group search-panel">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span id="search_concept">All</span> <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+              <li><a href="#title">Title</a></li>
+              <li><a href="#content">Content</a></li>
+              <li><a href="#author">Author</a></li>
+              <li class="divider"></li>
+              <li><a href="#all">All</a></li>
+          </ul>
+          
+          <input type="hidden" name="search_param" value="all" id="search_param">  
           <input type="text" class="search-bar form-control" name="content">
           <div class="input-group-btn">
             <button class="btn btn-default" type="submit">
@@ -67,7 +79,7 @@
                 </div>
               </div>
               </div>
-          <div class="register">
+          <div class="register" style="overflow-y: scroll; height: 400px;">
               <div class="arrow-up_2"></div>
               <div class="formholder">
                 <div class="randompad">
@@ -115,24 +127,24 @@
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">Fist Name</label>
-                            <input id="name" type="firstname"  name="firstName" value="{{ old('name') }}" required autofocus>
+                        <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+                            <label for="firstName">firstName</label>
+                            <input id="firstName" type="firstName"  name="firstName" value="{{ old('firstName') }}" required autofocus>
 
-                            @if ($errors->has('name'))
+                            @if ($errors->has('firstName'))
                             <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
+                            <strong>{{ $errors->first('firstName') }}</strong>
                             </span>
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">Last Name</label>
-                            <input id="name" type="firstname"  name="lastName" value="{{ old('name') }}" required autofocus>
+                        <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+                            <label for="lastName">lastName</label>
+                            <input id="lastName" type="lastName"  name="lastName" value="{{ old('lastName') }}" required autofocus>
 
-                            @if ($errors->has('name'))
+                            @if ($errors->has('lastName'))
                             <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
+                            <strong>{{ $errors->first('lastName') }}</strong>
                             </span>
                             @endif
                         </div>
@@ -246,4 +258,16 @@ $(document).mouseup(function (e)
         $('#registerform').removeClass('green');
     }
 });
+
+$(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+      e.preventDefault();
+    var param = $(this).attr("href").replace("#","");
+    var concept = $(this).text();
+    $('.search-panel span#search_concept').text(concept);
+    $('.input-group #search_param').val(param);
+  });
+});
+
+
 </script>
