@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 //Import Post model to the controller
 use App\Post;
 use App\User;
+use App\Reply;
 use DB;
 
 class PostController extends Controller
@@ -20,6 +21,7 @@ class PostController extends Controller
     {   
     	$user = $request->user();
         $filter_type = 1; 
+        $sort_type = 1; 
     	//If the user is not registerd 
         if($user == NULL){
             $posts = Post::all();
@@ -30,7 +32,7 @@ class PostController extends Controller
         	]);
         	$posts = Post::all();
             
-        	return view('post.post_page',compact('posts','filter_type'));
+        	return view('post.post_page',compact('posts','filter_type', 'sort_type'));
 
         }
         //If the user is registerd 
@@ -46,7 +48,7 @@ class PostController extends Controller
             $posts = Post::all();
             
             
-            return view('post.post_page',compact('posts','filter_type'));
+            return view('post.post_page',compact('posts','filter_type', 'sort_type'));
         }
     }
 
@@ -74,6 +76,8 @@ class PostController extends Controller
         $posts = Post::all();
         $filter_type = 1;
         $option = $request['filter'];
+        $sort_option = $request['sort'];
+        $sort_type = 1; 
         if($option == 1){
             //$posts = $posts->sortByDesc('updated_at');
             $posts = $posts->filter(function ($post) {
@@ -102,7 +106,35 @@ class PostController extends Controller
             $filter_type = 3; 
         }
 
-        return view('post.post_page',compact('posts', 'filter_type'));
+        if($sort_option == 1){
+            $posts = $posts->sortBy('updated_at');
+            
+            $sort_type = 1; 
+        }
+
+        if($sort_option == 2){
+            
+               
+            
+            $posts = $posts->sortByDesc('updated_at');
+
+            $sort_type = 2;  
+
+        }
+
+        if($sort_option == 3){ // change to aq! 
+            $posts = $posts->sortBy('title');
+
+            $sort_type = 3; 
+        }
+        
+        if($sort_option == 4){ // change to aq! 
+            $posts = $posts->sortByDesc('title');
+
+            $sort_type = 4; 
+        }
+
+        return view('post.post_page',compact('posts', 'filter_type', 'sort_type'));
     }
 
     public function delete_post_page(Request $request)
@@ -111,6 +143,16 @@ class PostController extends Controller
         $posts = Post::all();
         return view('post.post_page',compact('posts'));
     }
+
+     public function reply_post_page(Request $request)
+    {
+        DB::table('posts')->where('id', '=', $request['reply_id'])->add();
+        $posts = Post::all();
+        return view('post.post_page',compact('posts'));
+    }
+
+
+
 
     public function search(Request $request){
 

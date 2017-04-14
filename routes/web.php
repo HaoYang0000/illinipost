@@ -24,6 +24,7 @@ Route::get('/home', function () {
 Route::get('/create_post', 'PostController@create_post_page');
 Route::post('/create_post', 'PostController@create_post');
 Route::post('/delete_post', 'PostController@delete_post_page');
+Route:: post('/reply_post', 'PostController@reply_post_page');
 //Direct user to check all post 
 Route::get('/check_post', 'PostController@check_post_page');
 Route::get('/check_post_page', 'PostController@check_post_page');
@@ -35,6 +36,7 @@ Route::get('/check_post_page', 'PostController@check_post_page');
 //Edit user information
 Route::get('/editUserInfo', 'UserController@get_user_info');
 Route::post('/editUserInfo', 'UserController@update_user_info');
+
 
 //Search bar
 Route::post('/search','PostController@search');
