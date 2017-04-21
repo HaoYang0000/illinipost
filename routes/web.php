@@ -31,11 +31,13 @@ Route::get('/check_post_page', 'PostController@check_post_page');
 
 //User login
 // Route::post('/user_login', 'UserController@login');
-// Route::post('/user_register', 'UserController@register');
+//Route::post('/user_register', 'RegisterController@create');
 
 //Edit user information
 Route::get('/editUserInfo', 'UserController@get_user_info');
 Route::post('/editUserInfo', 'UserController@update_user_info');
+//email
+
 
 
 //Search bar
