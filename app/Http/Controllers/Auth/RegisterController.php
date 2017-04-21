@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\Welcome;
+use Mail;
 
 class RegisterController extends Controller
 {
@@ -63,12 +65,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         //dd($data); 
+        Mail::to($data['email'])->send(new Welcome);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'age' => $data['age'],
-            'gender'=> 1,
+            'gender'=> $data['gender'],
             'firstName'=> $data['firstName'],
             'lastName'=> $data['lastName'],
             // 'age' => $data['age'],
@@ -76,5 +79,7 @@ class RegisterController extends Controller
             // 'firstName'=> $data['firstName'],
             // 'lastName'=> $data['lastName'],
         ]);
+        
+        //return redirect()->home();  
     }
 }

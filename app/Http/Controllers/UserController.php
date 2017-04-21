@@ -92,10 +92,10 @@ class UserController extends Controller
 
         ]);
       //\Mail::to($user->email)->send(new Welcome);
-      Mail::to('mailtrp@sina.io')->send(new Welcome);
+      
       //echo 'SUCCESS!';
 
-      return view('post.create_post_page');  	
+      
         
     }
     public function get_user_info(Request $request)
