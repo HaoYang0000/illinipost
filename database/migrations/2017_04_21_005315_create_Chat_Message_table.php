@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReplyTable extends Migration
+class CreateChatMessageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateReplyTable extends Migration
      */
     public function up()
     {
-        Schema::create('reply', function (Blueprint $table) {
-         
-            $table->integer('post_id');
-            $table->integer('replyPost_id');
-           
+        Schema::create('chat_messages', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('room_id');
+            $table->string('sender_username');
+            $table->text('message');
+            $table->boolean('read')->default(false);
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateReplyTable extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('reply');
+        Schema::drop('chat_messages');
     }
 }
