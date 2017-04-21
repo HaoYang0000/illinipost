@@ -15,3 +15,8 @@ html,body
     border-right: solid 1px lightgray;
     background-color: white;
 }
+
+#chat-bottom
+{
+    background-color: lightgray;
+}
