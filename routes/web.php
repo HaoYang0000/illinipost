@@ -41,4 +41,17 @@ Route::post('/editUserInfo', 'UserController@update_user_info');
 //Search bar
 Route::post('/search','PostController@search');
 
+//Chat 
+Route::get('/chatRooms','ChatController@check_chat_page');
+Route::get('/chat/{roomname}/{username}', function($roomname,$username)
+{
+	return view('chat.chat',compact('roomname','username'));
+	//return View::make('chat.chat')->with('username',$username);
+});
+Route::post('/chat/{roomname}/sendMessage', 'ChatController@sendMessage');
+Route::post('/chat/{roomname}/isTyping', 'ChatController@isTyping');
+Route::post('/chat/{roomname}/notTyping', 'ChatController@notTyping');
+Route::post('/chat/{roomname}/retrieveChatMessages', 'ChatController@retrieveChatMessages');
+Route::post('/chat/{roomname}/retrieveTypingStatus', 'ChatController@retrieveTypingStatus');
+
 Auth::routes();
