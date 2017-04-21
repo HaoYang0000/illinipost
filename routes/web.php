@@ -35,5 +35,15 @@ Route::get('/check_post_page', 'PostController@check_post_page');
 //Edit user information
 Route::get('/editUserInfo', 'UserController@get_user_info');
 Route::post('/editUserInfo', 'UserController@update_user_info');
+//email
+use App\Mail\Welcome;
+
+Route::get('/',function () {
+    // send an email to "batman@batcave.io"
+    Mail::to('mailtrp@sina.io')->send(new Welcome);
+	//return 'asdswad';
+    //return redirect('/');
+    return view('post.create_post_page');  
+});
 
 Auth::routes();
