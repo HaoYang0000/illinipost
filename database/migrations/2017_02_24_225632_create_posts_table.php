@@ -19,9 +19,9 @@ class CreatePostsTable extends Migration
             $table->string('title')->nullable();
             $table->string('user_first_name')->nullable();
             $table->string('user_last_name')->nullable();
-            $table->enum('category', ['Food', 'Academic'])->nullable(); 
+            $table->enum('category', ['Food', 'Academic', 'Q&A'])->nullable(); 
             $table->text('content')->nullable();
-
+            
             $table->timestamps();
         });
     }

@@ -32,9 +32,22 @@
       <a class="btn navbar-btn create-post-button" href="./create_post">Make a post</a>
       <a class="btn navbar-btn create-post-button" href="./check_post">Check posts</a>\
       <!--Search bar-->
-      <form class="navbar-form navbar-right">
-        <div class="input-group">
-          <input type="text" class="search-bar form-control" placeholder="Search">
+      <form class="navbar-form navbar-right" role="form" method="POST" action="search">
+        {!! csrf_field() !!}
+        <div class="input-group search-panel">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span id="search_concept">All</span> <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+              <li><a href="#title">Title</a></li>
+              <li><a href="#content">Content</a></li>
+              <li><a href="#author">Author</a></li>
+              <li class="divider"></li>
+              <li><a href="#all">All</a></li>
+          </ul>
+          
+          <input type="hidden" name="search_param" value="all" id="search_param">  
+          <input type="text" class="search-bar form-control" name="content">
           <div class="input-group-btn">
             <button class="btn btn-default" type="submit">
               <i class="glyphicon glyphicon-search"></i>
@@ -245,4 +258,16 @@ $(document).mouseup(function (e)
         $('#registerform').removeClass('green');
     }
 });
+
+$(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+      e.preventDefault();
+    var param = $(this).attr("href").replace("#","");
+    var concept = $(this).text();
+    $('.search-panel span#search_concept').text(concept);
+    $('.input-group #search_param').val(param);
+  });
+});
+
+
 </script>

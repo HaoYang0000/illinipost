@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 //Import Post model to the controller
 use App\Post;
 use App\User;
+use App\Reply;
 use DB;
 
 class PostController extends Controller
@@ -19,6 +20,8 @@ class PostController extends Controller
     public function create_post(Request $request)
     {   
     	$user = $request->user();
+        $filter_type = 1; 
+        $sort_type = 1; 
     	//If the user is not registerd 
         if($user == NULL){
             $posts = Post::all();
@@ -29,7 +32,7 @@ class PostController extends Controller
         	]);
         	$posts = Post::all();
             
-        	return view('post.post_page',compact('posts'));
+        	return view('post.post_page',compact('posts','filter_type', 'sort_type'));
 
         }
         //If the user is registerd 
@@ -44,7 +47,8 @@ class PostController extends Controller
             ]);
             $posts = Post::all();
             
-            return view('post.post_page',compact('posts'));
+            
+            return view('post.post_page',compact('posts','filter_type', 'sort_type'));
         }
     }
 
@@ -70,12 +74,16 @@ class PostController extends Controller
     public function check_post_page(Request $request)
     {   
         $posts = Post::all();
+        $filter_type = 1;
         $option = $request['filter'];
+        $sort_option = $request['sort'];
+        $sort_type = 1; 
         if($option == 1){
             //$posts = $posts->sortByDesc('updated_at');
             $posts = $posts->filter(function ($post) {
                 return $post->category == "Food";
             });
+            $filter_type = 1; 
         }
 
         if($option == 2){
@@ -84,17 +92,49 @@ class PostController extends Controller
              //$posts->contains('category',"Food");
              $posts = $posts->filter(function ($post) {
                 return $post->category == "Academic";
+
             });
+            $filter_type = 2;  
 
-                //$posts->all();
-
-            
         }
 
-        if($option == 3){
+        if($option == 3){ // change to aq! 
+              $posts = $posts->filter(function ($post) {
+                return $post->category == "Q&A";
+            });
             $posts = $posts->sortByDesc('updated_at');
+            $filter_type = 3; 
         }
-        return view('post.post_page',compact('posts'));
+
+        if($sort_option == 1){
+            $posts = $posts->sortBy('updated_at');
+            
+            $sort_type = 1; 
+        }
+
+        if($sort_option == 2){
+            
+               
+            
+            $posts = $posts->sortByDesc('updated_at');
+
+            $sort_type = 2;  
+
+        }
+
+        if($sort_option == 3){ // change to aq! 
+            $posts = $posts->sortBy('title');
+
+            $sort_type = 3; 
+        }
+        
+        if($sort_option == 4){ // change to aq! 
+            $posts = $posts->sortByDesc('title');
+
+            $sort_type = 4; 
+        }
+
+        return view('post.post_page',compact('posts', 'filter_type', 'sort_type'));
     }
 
     public function delete_post_page(Request $request)
@@ -102,6 +142,45 @@ class PostController extends Controller
         DB::table('posts')->where('id', '=', $request['post_id'])->delete();
         $posts = Post::all();
         return view('post.post_page',compact('posts'));
+    }
+
+     public function reply_post_page(Request $request)
+    {
+        DB::table('posts')->where('id', '=', $request['reply_id'])->add();
+        $posts = Post::all();
+        return view('post.post_page',compact('posts'));
+    }
+
+
+
+
+    public function search(Request $request){
+
+        
+        #echo $request['content'];
+        #echo $request['search_param'];
+        $filter_type = 1; 
+
+        if($request['search_param'] == 'all'){
+            $posts = DB::table('posts')->where('title', 'like', '%'.$request['content'].'%')->get();
+        }
+
+        if($request['search_param'] == 'title'){
+            $posts = DB::table('posts')->where('title', 'like', '%'.$request['content'].'%', 'or',
+                                               'content', 'like', '%'.$request['content'].'%', 'or',
+                                               'user_first_name', 'like', '%'.$request['content'].'%', 'or',
+                                               'user_last_name', 'like', '%'.$request['content'].'%')->get();
+        }
+
+        if($request['search_param'] == 'content'){
+            $posts = DB::table('posts')->where('content', 'like', '%'.$request['content'].'%')->get();
+        }
+
+        if($request['search_param'] == 'author'){
+            $posts = DB::table('posts')->where('user_first_name', 'like', '%'.$request['content'].'%', 'or', 'user_last_name', 'like', '%'.$request['content'].'%')->get();
+        }
+
+        return view('post.post_page',compact('posts','filter_type'));
     }
 
 }
