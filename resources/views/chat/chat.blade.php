@@ -12,8 +12,9 @@
         <div id="chat-window" class="col-lg-12">
 
         </div>
-        <div class="col-lg-12">
-            <div id="typingStatus" class="col-lg-12" ></div>
+        <div id="typingStatus" class="col-lg-12" ></div>
+        <div id="chat-bottom"  class="col-lg-12">
+            <label id="typingStatus"></label>
             <input type="text" id="text" class="form-control col-lg-12" autofocus="" onblur="notTyping()">
         </div>
     </div>

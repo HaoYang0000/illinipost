@@ -48,7 +48,7 @@ Route::get('/chat/{roomname}/{username}', function($roomname,$username)
 	return view('chat.chat',compact('roomname','username'));
 	//return View::make('chat.chat')->with('username',$username);
 });
-Route::post('/chat/{roomname}/sendMessage', 'ChatController@sendMessage');
+Route::post('/chat/{roomname}/sendMessage','ChatController@sendMessage');
 Route::post('/chat/{roomname}/isTyping', 'ChatController@isTyping');
 Route::post('/chat/{roomname}/notTyping', 'ChatController@notTyping');
 Route::post('/chat/{roomname}/retrieveChatMessages', 'ChatController@retrieveChatMessages');
