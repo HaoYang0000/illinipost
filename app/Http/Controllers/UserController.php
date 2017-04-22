@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Post;
+use App\Mail\Welcome;
 use Auth;
 use DB;
 
@@ -74,6 +75,9 @@ class UserController extends Controller
     /**
     *   Function to login
     */
+  
+    
+
     public function register(Request $request)
     {   
     	
@@ -87,11 +91,13 @@ class UserController extends Controller
                 'password'=>$request['password'],
 
         ]);
+      //\Mail::to($user->email)->send(new Welcome);
+      
+      //echo 'SUCCESS!';
 
-        return view('post.create_post_page');  	
+      
         
     }
-
     public function get_user_info(Request $request)
     {   
         
