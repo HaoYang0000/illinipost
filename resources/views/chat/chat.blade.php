@@ -20,7 +20,18 @@
         <div id="chat-bottom"  class="col-lg-12">
             
             <input type="text" id="text" class="form-control col-lg-12" autofocus="" onblur="notTyping()">
-            <input type="button" value="Send Message" style ="background-color: #FF8C00 ; border-radius: 10px; width: 100px; color: #F8F8FF; font-family: Charcoal;">
+            <input type="button" value="Send Message" style ="background-color: #FF8C00 ; border-radius: 10px; width: 100px; color: #F8F8FF; font-family: Charcoal; margin-top: 5px; margin-bottom: 5px; margin-left: 230px;">
+
+        </div>
+        <div id = "pic">
+            <div id="pic1">
+                <img src = "https://obamadiary.files.wordpress.com/2014/10/tumblr_men4drfxru1qe5icro1_400.gif?w=505&h=622"  style="width:250px;height:245px;float:left;">
+            </div>
+
+            <div id="pic2">
+       
+                <img src ="http://rs675.pbsrc.com/albums/vv118/kanda30/386132378_a831e1a01246287192.gif~c200" style="width:220px;height:200px; float:right; ">
+            </div>
         </div>
     </div>
 
