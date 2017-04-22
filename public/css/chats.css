@@ -3,20 +3,41 @@ html,body
     font-family: 'Segoe UI Light', 'Helvetica Neue', 'RobotoLight', 'Segoe UI', 'Segoe WP', sans-serif;
 }
 
-#greeting
+#title 
 {
+	margin-top: 100px;
     text-align: center;
+    color:#FF8C00;
+    background-color:#6495ED; 
+
+}
+
+#chatroom
+{   margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#greeting 
+{   margin-top: 0px;
+    margin-bottom:0px;
 }
 
 #chat-window
-{
+{	
+    margin-top: 0px;
     height: 200px;
-    border-left: solid 1px lightgray;
-    border-right: solid 1px lightgray;
-    background-color: white;
+    
+    background-color:#FFFAFA;
+    border-bottom: 0px;
+
 }
 
 #chat-bottom
-{
-    background-color: lightgray;
+{   
+    margin-top: -1px;
+	border-spacing: 0px;
+    background-color: 	#6495ED;
+    border-left: solid 1px lightgray;
+    border-right: solid 1px lightgray;
 }
+

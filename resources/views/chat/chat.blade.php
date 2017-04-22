@@ -6,16 +6,21 @@
     
 
     <div class="col-lg-4 col-lg-offset-4">
-        <h1 id="chatroom">Chat Room:<span id="roomname">{{$roomname}}</span></h1>
-        <h1 id="greeting">Hello, <span id="username">{{$username}}</span></h1>
+    <div id="title">
+        <h1 id="chatroom" >Chat Room:<span id="roomname">{{$roomname}}</span></h1>
+       <h1 id="greeting" >Hello, <span id="username">{{$username}}</span></h1> 
 
         <div id="chat-window" class="col-lg-12">
+             <label id="typingStatus" style ="bottom:0px; position: absolute;"></label>
+    </div>
 
         </div>
+
         <div id="typingStatus" class="col-lg-12" ></div>
         <div id="chat-bottom"  class="col-lg-12">
-            <label id="typingStatus"></label>
+            
             <input type="text" id="text" class="form-control col-lg-12" autofocus="" onblur="notTyping()">
+            <input type="button" value="Send Message" style ="background-color: #FF8C00 ; border-radius: 10px; width: 100px; color: #F8F8FF; font-family: Charcoal;">
         </div>
     </div>
 
