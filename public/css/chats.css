@@ -5,24 +5,37 @@ html,body
 
 #title 
 {
-	margin-top: 130px;
+	margin-top: 100px;
     text-align: center;
     color:#FF8C00;
     background-color:#6495ED; 
+
+}
+
+#chatroom
+{   margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#greeting 
+{   margin-top: 0px;
+    margin-bottom:0px;
 }
 
 #chat-window
 {	
+    margin-top: 0px;
     height: 200px;
-  
+    
     background-color:#FFFAFA;
-    border-bottom: 18px;
+    border-bottom: 0px;
 
 }
 
 #chat-bottom
-{
-	border-spacing: 18px;
+{   
+    margin-top: -1px;
+	border-spacing: 0px;
     background-color: 	#6495ED;
     border-left: solid 1px lightgray;
     border-right: solid 1px lightgray;
