@@ -17,6 +17,7 @@ class CreateChatRoomTable extends Migration
         {
             $table->increments('id');
             $table->integer('room_id');
+            $table->integer('owner_id')->nullable();
             $table->string('roomname');
             $table->string('username');
             $table->boolean('user_is_typing')->default(false);
