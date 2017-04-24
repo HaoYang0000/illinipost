@@ -1,5 +1,6 @@
 @extends('index')
 @section('body')
+
 <!-- CSS file -->
 <!-- Under directory illinipost\public\css -->
 <link rel="stylesheet" href="{{ URL::asset('/css/chats.css') }}">
@@ -36,6 +37,8 @@
 	      
 	    </tbody>
 	</table>
+  <img src="http://68.media.tumblr.com/7845ad46f0b321d7ff450acc0cee7563/tumblr_nhvilswST21t0t8uno1_500.gif" style="width:304px;height:200px; margin-left: 480px;">
+ 		
 <!--  Pop up start -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">

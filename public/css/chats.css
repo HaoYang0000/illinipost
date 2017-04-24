@@ -11,7 +11,7 @@ html,body
 #chat-table{
     margin-top: 1%;
     margin-left: 4%;
-    background-color:white; 
+    background-color:rgba(255,0,255, 0.2); 
     width:80%;
 }
 
@@ -45,6 +45,41 @@ html,body
 
 
 
+#pic1{
+    width:55%;
+    margin-right:2%;
+    float: left;
+}
+#pic1 iframe{
+   width:100%;
+}
+#pic2 {
+    width:42%;
+    float: left;
+}
+
+#gif1{
+    width:55%;
+    margin-right:2%;
+    float: left;
+}
+#gif1 iframe{
+   width:100%;
+}
+#game_head {
+    width:42%;
+    float: right;
+}
+
+
+
+
+#chatroom
+{   margin-top: 100px;
+    margin-bottom: 0px;
+}
+
+
 #greeting 
 {   margin-top: 0px;
     margin-bottom:0px;
@@ -54,8 +89,9 @@ html,body
 {	
     margin-top: 0px;
     height: 200px;
-    
-    background-color:#FFFAFA;
+    background-image: url("http://theabsolutemag.com/wp-content/uploads/2016/03/58242a31468859.56524f20428af-sm.gif");
+    background-size: 340px 200px;
+   
     border-bottom: 0px;
 
 }

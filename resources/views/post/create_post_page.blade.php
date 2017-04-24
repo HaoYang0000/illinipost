@@ -20,7 +20,9 @@
         </div>
     </form>
      <button class="btn btn-default" onclick="checkpost()">Submit</button>
+      <img src ="https://m.popkey.co/cee9a2/er35g_s-200x150.gif" style="margin-left: 1000px; ">
 </div>
+
 
 <script type="text/javascript">
     function checkpost() {
