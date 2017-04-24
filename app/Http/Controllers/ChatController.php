@@ -11,13 +11,34 @@ use DB;
 class ChatController extends Controller
 {
     public function check_chat_page(Request $request){
-        $chatroom = ChatRoom::all();
+        
         $user = $request->user();
         if($user == null){
-            $user = 'Doe Joe';
+            return view('layout.login_reminder');
+        }else{
+            
+            $chatroom = ChatRoom::where('owner_id','!=',null)->get();
+            return view('chat.chatRooms',compact('chatroom','user'));
         }
+    }
 
-        return view('chat.chatRooms',compact('chatroom','user'));
+    public function enter_room(Request $request,$roomname,$username)
+    {
+        $user = $request->user();
+        if($user == null){
+            return view('layout.login_reminder');
+        }else{
+            $room = ChatRoom::where('roomname','=',$roomname)->first();
+            ChatRoom::create([
+                'room_id' => $room->room_id,
+                'roomname' => $roomname,
+                'username' => $user->firstName,
+            ]);
+            $username = $user->firstName;
+
+
+            return view('chat.chat',compact('roomname','username'));
+        }
     }
 
     public function sendMessage(Request $request)
@@ -29,7 +50,7 @@ class ChatController extends Controller
         $room = ChatRoom::where('username', '=', $username,'and', 'roomname', '=', $roomname)->first();
         
         ChatMessage::create([
-            'room_id' => $room->id,
+            'room_id' => $room->room_id,
             'sender_username'=> $username,
             'message'=> $text,
         ]);
@@ -66,21 +87,21 @@ class ChatController extends Controller
         $username = $request->input('username');
         $roomname = $request->input('roomname');
 
-        $room = ChatRoom::where('username', '=', $username,'and', 'roomname', '=', $roomname)->first();
+        // $room = ChatRoom::where('username', '=', $username,'and', 'roomname', '=', $roomname)->first();
         
-        $message = ChatMessage::where('sender_username', '!=', $username,'and', 'roomname', '=', $roomname)->where('read', '=', false)->first();
+        // $message = ChatMessage::where('sender_username', '!=', $username,'and', 'roomname', '=', $roomname)->where('read', '=', false)->first();
 
 
-        if (count($message) > 0)
-        {
-            $message->read = true;
-            $message->save();
-            $response = array(
-            'status' => 'success',
-            'message' => $message,
-            );
-            return $response;
-        }
+        // if (count($message) > 0)
+        // {
+        //     $message->read = true;
+        //     $message->save();
+        //     $response = array(
+        //     'status' => 'success',
+        //     'message' => $message,
+        //     );
+        //     return $response;
+        // }
     }
 
     public function retrieveTypingStatus(Request $request)
@@ -109,5 +130,31 @@ class ChatController extends Controller
 
             return $response;
         }
+    }
+
+    public function createNewRoom(Request $request){
+        $user = $request->user();
+        if($user == null){
+            return view('layout.login_reminder');
+        }else{
+            ChatRoom::create([
+                'room_id' => rand(),
+                'owner_id'=> $user->id,
+                'roomname' => $request->input('room_name'),
+                'username' => $user->firstName,
+            ]);
+
+            $chatroom = ChatRoom::where('owner_id','!=',null)->get();
+
+            return view('chat.chatRooms',compact('chatroom','user'));
+
+        }
+        
+
+    }
+
+    public function delete_room(Request $request){
+        ChatRoom::where('id', '=', $request['room_id'])->delete();
+        return redirect('/chatRooms');
     }
 }
