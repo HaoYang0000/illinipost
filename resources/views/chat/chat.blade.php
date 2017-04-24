@@ -11,16 +11,16 @@
        <h1 id="greeting" >Hello, <span id="username">{{$username}}</span></h1> 
 
         <div id="chat-window" class="col-lg-12">
-             <label id="typingStatus" style ="bottom:0px; position: absolute;"></label>
-    </div>
+            
+        </div>
 
         </div>
 
-        <div id="typingStatus" class="col-lg-12" ></div>
+        <div id="typingStatus" class="col-lg-12" style ="bottom:0px; position: absolute;"></div>
         <div id="chat-bottom"  class="col-lg-12">
             
             <input type="text" id="text" class="form-control col-lg-12" autofocus="" onblur="notTyping()">
-            <input type="button" value="Send Message" style ="background-color: #FF8C00 ; border-radius: 10px; width: 100px; color: #F8F8FF; font-family: Charcoal;">
+            <input type="button" value="Send Message" onclick="sendMessage()" style ="background-color: #FF8C00 ; border-radius: 10px; width: 100px; color: #F8F8FF; font-family: Charcoal;">
         </div>
     </div>
 
@@ -69,10 +69,10 @@ function retrieveChatMessages()
             
             $('#text').val('');
             notTyping();
-        },
-        error: function (data) {
-            console.log('Error:', data);
         }
+        // error: function (data) {
+        //     console.log('Error in retrieve chat message:', data);
+        // }
     });
     // $.post('retrieveChatMessages', {username: username, roomname: roomname}, function(data)
     // {
@@ -96,7 +96,7 @@ function retrieveTypingStatus()
             $('#typingStatus').html(data.user+' is typing');
         },
         error: function (data) {
-            console.log('Error:', data);
+            console.log('Error in retrieveTypingStatus:', data);
         }
         
     });
@@ -113,6 +113,8 @@ function retrieveTypingStatus()
 function sendMessage()
 {
     var text = $('#text').val();
+    $('#chat-window').append('<div style="text-align: left">'+text
+                +'</div>');
 
     
     if (text.length > 0)
@@ -129,7 +131,7 @@ function sendMessage()
                 
             },
             error: function (data) {
-                console.log('Error:', data);
+                console.log('Error: in send Message', data);
             }
         });
         // $.post('sendMessage', {text: text, username: user_name, roomname: room_name}, function()
@@ -152,6 +154,9 @@ function isTyping()
         dataType: 'JSON',
         success: function (data) {
             console.log(data);
+        },
+        error: function (data) {
+            console.log('Error: in is typing', data);
         }
     });
 }
@@ -167,6 +172,9 @@ function notTyping()
         dataType: 'JSON',
         success: function (data) {
             console.log(data);
+        },
+        error: function (data) {
+            console.log('Error: in not typing', data);
         }
     });
     //$.post('/notTyping', {username: user_name,roomname: room_name});

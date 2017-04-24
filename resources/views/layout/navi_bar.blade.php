@@ -29,9 +29,9 @@
          <li class="nav-text-background"><a class="nav-text-one" href="#">ACADEMIC</a></li>
          <li class="nav-text-background"><a class="nav-text-one" href="#">FOOD</a></li>
       </ul>
-      <a class="btn navbar-btn create-post-button" href="./create_post">Make a post</a>
-      <a class="btn navbar-btn create-post-button" href="./check_post">Check posts</a>
-      <a class="btn navbar-btn create-post-button" href="./chatRooms">Chat Room</a>
+      <a class="btn navbar-btn create-post-button" href="/create_post">Make a post</a>
+      <a class="btn navbar-btn create-post-button" href="/check_post">Check posts</a>
+      <a class="btn navbar-btn create-post-button" href="/chatRooms">Chat Room</a>
 
       <!--Search bar-->
       <form class="navbar-form navbar-right" role="form" method="POST" action="search">

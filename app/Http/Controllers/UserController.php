@@ -19,7 +19,7 @@ class UserController extends Controller
     */
     public function login(Request $request)
     {   
-    	$user = DB::table('users')->where('email','=',$request['email'])->get();
+    	  $user = DB::table('users')->where('email','=',$request['email'])->get();
 
         // create our user data for the authentication
         $userdata = array(
