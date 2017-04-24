@@ -28,6 +28,7 @@ Route:: post('/reply_post', 'PostController@reply_post_page');
 //Direct user to check all post 
 Route::get('/check_post', 'PostController@check_post_page');
 Route::get('/check_post_page', 'PostController@check_post_page');
+Route::get('/check_post_a_page', 'PostController@check_post_a_page');
 
 //User login
 // Route::post('/user_login', 'UserController@login');
