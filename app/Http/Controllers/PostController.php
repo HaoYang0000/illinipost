@@ -180,6 +180,48 @@ class PostController extends Controller
 
         return view('post.post_page_a',compact('posts', 'filter_type', 'sort_type'));
     }
+        public function check_post_f_page(Request $request)
+    {   
+        $posts = Post::all();
+        $filter_type = 1;
+        $sort_option = 2;
+        $sort_type = 1; 
+          
+        $posts = $posts->filter(function ($post){
+            return $post->category == "Food";
+
+        });
+        $filter_type = 2;  
+
+
+        if($sort_option == 1){
+            $posts = $posts->sortBy('updated_at');
+            
+            $sort_type = 1; 
+        }
+
+        if($sort_option == 2){
+               
+            $posts = $posts->sortByDesc('updated_at');
+
+            $sort_type = 2;  
+
+        }
+
+        if($sort_option == 3){ // change to aq! 
+            $posts = $posts->sortBy('title');
+
+            $sort_type = 3; 
+        }
+        
+        if($sort_option == 4){ // change to aq! 
+            $posts = $posts->sortByDesc('title');
+
+            $sort_type = 4; 
+        }
+
+        return view('post.post_page_a',compact('posts', 'filter_type', 'sort_type'));
+    }
 
 
 

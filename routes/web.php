@@ -31,7 +31,8 @@ Route::get('/check_post_page', 'PostController@check_post_page');
 //academic
 Route::get('/check_post_a', 'PostController@check_post_a_page');
 Route::get('/check_post_a_page', 'PostController@check_post_a_page');
-
+Route::get('/check_post_f', 'PostController@check_post_f_page');
+Route::get('/check_post_f_page', 'PostController@check_post_f_page');
 //User login
 // Route::post('/user_login', 'UserController@login');
 //Route::post('/user_register', 'RegisterController@create');
