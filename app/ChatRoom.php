@@ -16,7 +16,7 @@ class ChatRoom extends Model
                           'owner_id',
                           'roomname',
                            'username',
-                    
+                            
                            ];
 
     public function getOwner($id)

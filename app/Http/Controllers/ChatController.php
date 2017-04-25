@@ -29,17 +29,25 @@ class ChatController extends Controller
             return view('layout.login_reminder');
         }else{
             $room = ChatRoom::where('roomname','=',$roomname)->first();
-            ChatRoom::create([
-                'room_id' => $room->room_id,
-                'roomname' => $roomname,
-                'username' => $user->firstName,
-            ]);
+            $temp = ChatRoom::where('roomname','=',$roomname, 'and','username','=',$username)->first();
+
+            if ($temp == null){
+                ChatRoom::create([
+                    'room_id' => $room->room_id,
+                    'roomname' => $roomname,
+                    'username' => $user->firstName,
+                    
+                ]);
+            }
+            
             $username = $user->firstName;
+           
 
-
-            return view('chat.chat',compact('roomname','username'));
+            return view('chat.chat',compact('roomname','username', 'color'));
         }
     }
+
+
 
     public function sendMessage(Request $request)
     {
