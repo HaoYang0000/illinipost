@@ -3,6 +3,7 @@
 <!-- CSS file -->
 <!-- Under directory illinipost\public\css -->
 <link rel="stylesheet" href="{{ URL::asset('/css/post_page/post-page.css') }}">
+<<<<<<< HEAD
 <div class = "edit">
     @if($path != null)
         <img src="{{$path}}" style="width:150px;height:150px;">
@@ -11,6 +12,16 @@
     @endif
     <br>
     <button data-toggle="modal" data-target="#uploadPicture">Upload Picture</button>
+=======
+<div class = "edit" style="height:680px; margin-top: 0%; width: 350px;">
+    @if($path != null)
+        <img src="{{$path}}" style="width:150px;height:150px;margin-left: 100px;">
+    @else
+        <img src="/files/male.png" style="width:150px;height:150px;margin-left: 100px;">
+    @endif
+    <br>
+    <button data-toggle="modal" data-target="#uploadPicture" style="margin-left: 125px;">Upload Picture</button>
+>>>>>>> food
     <form id="user_register" role="form" method="POST" action="editUserInfo">
         {{ csrf_field() }}
         <label name="firstname">First Name</label><br>
@@ -24,7 +35,7 @@
         <label name="age">Age</label><br>
         <input type="age" name="age" value="{{ $user->age }}"/><br>
         <input name="user_id" hidden="true" value="{{ $user->id }}"><br>
-        <input type="submit" value="update" style="width: 120px; height: 30px;background-color:#59ffa3;"/>
+        <input type="submit" value="update" style="width: 120px; height: 30px;background-color:white;"/>
     </form>
 </div>
 
