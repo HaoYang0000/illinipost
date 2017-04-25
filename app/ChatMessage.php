@@ -12,6 +12,7 @@ class ChatMessage extends Model
                           'room_id',
                            'sender_username',
                            'message',
+                           'receiver_username',
                         
                            ];
 }

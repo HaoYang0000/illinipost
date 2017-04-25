@@ -18,8 +18,9 @@ class CreateChatMessageTable extends Migration
             $table->increments('id');
             $table->integer('room_id');
             $table->string('sender_username');
+            $table->string('receiver_username');
             $table->text('message');
-            $table->integer('read')->default(0);
+            $table->boolean('read')->default(false);
             $table->timestamps();
         });
     }
