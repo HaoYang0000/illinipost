@@ -11,7 +11,8 @@ class Reply extends Model
      *
      * @var string
      */
-    protected $table = 'reply';
+    protected $table = 'replys';
+
 
     /**
      * The attributes that are mass assignable.
@@ -19,9 +20,8 @@ class Reply extends Model
      * @var array
      */
     protected $fillable = [
-                           'post_id',
+                           'Post_id',
                            'replyPost_id',
+                           'content'
                            ];
-
-                           
 }

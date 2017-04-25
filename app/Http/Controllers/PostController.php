@@ -201,10 +201,6 @@ class PostController extends Controller
 
 
     public function search(Request $request){
-
-        
-        #echo $request['content'];
-        #echo $request['search_param'];
         $filter_type = 1; 
 
         if($request['search_param'] == 'all'){
