@@ -42,6 +42,8 @@ Route::get('/check_post_f_page', 'PostController@check_post_f_page');
 //Edit user information
 Route::get('/editUserInfo', 'UserController@get_user_info');
 Route::post('/editUserInfo', 'UserController@update_user_info');
+Route::post('upload_profile_picture','UserController@update_profile_picture');
+
 //email
 
 
