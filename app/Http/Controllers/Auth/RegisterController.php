@@ -65,7 +65,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         //dd($data); 
-        Mail::to($data['email'])->send(new Welcome);
+        //Mail::to($data['email'])->send(new Welcome);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -74,10 +74,6 @@ class RegisterController extends Controller
             'gender'=> $data['gender'],
             'firstName'=> $data['firstName'],
             'lastName'=> $data['lastName'],
-            // 'age' => $data['age'],
-            // 'gender'=> $data['gender'],
-            // 'firstName'=> $data['firstName'],
-            // 'lastName'=> $data['lastName'],
         ]);
         
         //return redirect()->home();  
