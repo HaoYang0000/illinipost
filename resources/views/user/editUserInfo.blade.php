@@ -4,6 +4,7 @@
 <!-- Under directory illinipost\public\css -->
 <link rel="stylesheet" href="{{ URL::asset('/css/post_page/post-page.css') }}">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div class = "edit">
     @if($path != null)
         <img src="{{$path}}" style="width:150px;height:150px;">
@@ -13,6 +14,8 @@
     <br>
     <button data-toggle="modal" data-target="#uploadPicture">Upload Picture</button>
 =======
+=======
+>>>>>>> origin/master
 <div class = "edit" style="height:680px; margin-top: 0%; width: 350px;">
     @if($path != null)
         <img src="{{$path}}" style="width:150px;height:150px;margin-left: 100px;">
@@ -21,7 +24,11 @@
     @endif
     <br>
     <button data-toggle="modal" data-target="#uploadPicture" style="margin-left: 125px;">Upload Picture</button>
+<<<<<<< HEAD
 >>>>>>> food
+=======
+
+>>>>>>> origin/master
     <form id="user_register" role="form" method="POST" action="editUserInfo">
         {{ csrf_field() }}
         <label name="firstname">First Name</label><br>
