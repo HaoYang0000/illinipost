@@ -71,13 +71,20 @@ class ChatController extends Controller
         $roomname = $request->input('roomname');
         $text = $request->input('text');
 
-        $room = ChatRoom::where('username', '=', $username,'and', 'roomname', '=', $roomname)->first();
+        $rooms = ChatRoom::where('roomname', '=', $roomname)->get();
+        foreach ($rooms as $room) {
+            if($room->username != $username){
+                ChatMessage::create([
+                    'room_id' => $room->room_id,
+                    'sender_username'=> $username,
+                    'message'=> $text,
+                    'receiver_username' => $room->username,
+                ]);
+            }
+        }
+
         
-        ChatMessage::create([
-            'room_id' => $room->room_id,
-            'sender_username'=> $username,
-            'message'=> $text,
-        ]);
+        
         // $chatMessage = new ChatMessage();
         // $chatMessage->room_id = $room->id;
         // $chatMessage->sender_username = $username;
@@ -112,8 +119,7 @@ class ChatController extends Controller
         $roomname = $request->input('roomname');
 
         $room = ChatRoom::where('username', '=', $username,'and', 'roomname', '=', $roomname)->first();
-        
-        $message = ChatMessage::where('sender_username', '!=', $username,'and', 'roomname', '=', $roomname)->where('read', '=', false)->first();
+        $message = ChatMessage::where('sender_username','!=',$username)->where('receiver_username', '=', $username)->where('room_id', '=', $room->room_id)->where('read', '=', false)->first();
 
 
         if (count($message) > 0)
