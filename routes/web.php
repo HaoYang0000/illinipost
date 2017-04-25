@@ -59,5 +59,6 @@ Route::post('/chat/{roomname}/isTyping', 'ChatController@isTyping');
 Route::post('/chat/{roomname}/notTyping', 'ChatController@notTyping');
 Route::post('/chat/{roomname}/retrieveChatMessages', 'ChatController@retrieveChatMessages');
 Route::post('/chat/{roomname}/retrieveTypingStatus', 'ChatController@retrieveTypingStatus');
+Route::post('create_chat_room','ChatController@createNewRoom');
 
 Auth::routes();
