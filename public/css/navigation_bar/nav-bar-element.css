@@ -63,26 +63,7 @@ body {
   background-image: url("http://icloudpicture.com/wp-content/uploads/2015/11/Shanghai-4K-Wallpaper.jpeg");
   background-size: cover;
 }
-#catImg {
-  width:55%;
-    margin-right:5%;
-    float: left;
-}
-#catImg iframe{
-  width:100%;
-}
 
-
-#Reminder {
-  margin-top: 200px;
-  width:42%;
-   
-  position: absolute;
-  right: 320px;
-  font-size: 50px;
-  color:  #FF1493;
-  font-family: "Comic Sans MS";
-}
 
 #wrap {
   margin: 0 auto 10px;
