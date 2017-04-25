@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Sans-serif;
+  background-image:linear-gradient(rgba(65, 105, 225, 0.4), rgba(65, 105, 225, 0.4)),
+                  url("http://icloudpicture.com/wp-content/uploads/2015/11/Shanghai-4K-Wallpaper.jpeg");
+  background-size: cover;
+}
+#catImg {
+  width:55%;
+    margin-right:5%;
+    float: left;
+    float: left;
+       position: relative;
+
+    -webkit-animation: mymovee 3s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymovee 3s infinite;
+    
+}
+
+@keyframes mymovee {
+    from {right: 0px;}
+    to {right: 600px;}
+}
+
+
+#catImg iframe{
+  width:100%;
+}
+
+
+.rainbow {
+  margin-top: 200px;
+  width:50%;
+   
+  position: absolute;
+  right: 320px;
+  font-size: 45px;
+  
+  font-family: "Comic Sans MS";
+
+}
+
+
+
+.rainbow {
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+    
+}
+
+#facebook {
+   position: relative;
+    -webkit-animation: mymove 3s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 3s infinite;
+}
+@-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 600px;}
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 600px;}
+}
+
+
+
+
+
