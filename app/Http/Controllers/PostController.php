@@ -9,10 +9,18 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 use App\Reply;
+use App\Word;
 use DB;
 
 class PostController extends Controller
 {
+
+    public function home_page()
+    {
+        $word = Reply::all();
+        dd($word);
+        return view('post.home_page', compact('word'));
+    }
     /**
     *   Function to create a post 
     *   the parameters doesn't matter for now
@@ -69,7 +77,7 @@ class PostController extends Controller
     public function sort_objects_by_total($a, $b) {
     if($a->updated_at == $b->updated_at){ return 0 ; }
     return ($a->updated_at < $b->updated_at) ? -1 : 1;
-}
+    }
 
     public function check_post_page(Request $request)
     {   
@@ -180,7 +188,9 @@ class PostController extends Controller
 
         return view('post.post_page_a',compact('posts', 'filter_type', 'sort_type'));
     }
-        public function check_post_f_page(Request $request)
+    
+
+    public function check_post_f_page(Request $request)
     {   
         $posts = Post::all();
         $filter_type = 1;
@@ -220,7 +230,7 @@ class PostController extends Controller
             $sort_type = 4; 
         }
 
-        return view('post.post_page_a',compact('posts', 'filter_type', 'sort_type'));
+        return view('post.post_page_f',compact('posts', 'filter_type', 'sort_type'));
     }
 
 
