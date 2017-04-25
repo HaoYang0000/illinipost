@@ -24,6 +24,7 @@ class CreateChatRoomTable extends Migration
             $table->integer('num_viewed')->default(0);
             $table->boolean('user_is_typing')->default(false);
             $table->timestamps();
+            $table->string('color')->default(0); 
         });
     }
 

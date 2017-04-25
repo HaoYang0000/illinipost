@@ -27,16 +27,16 @@
 <div>
     <h6>&nbsp;</h6>
     
-    <h1>GO ILLINI!!!</h1>
+    <h1 style="margin-left: 2%;">GO ILLINI!!!</h1>
     <div>
      <div id="game_head">
-    <p style="font-size: 1.3em;">Press the spacebar to jump</p>
+    <p style="font-size: 1.3em; margin-left: 2%; ">Press the spacebar to jump</p>
     </div>
     </div>
 
 </div>
 <div>
-  <div id="game_div" style="margin-left: 39%;"> </div>
+  <div id="game_div" style="margin-left: 5%; height: 10%; width: 40%; "> </div>
   
 </div>
 @endSection

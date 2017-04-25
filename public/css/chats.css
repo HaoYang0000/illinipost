@@ -4,15 +4,35 @@ html,body
 }
 
 #chatroom
-{   margin-top: 0px;
+
+{    
+       
+    margin-top: 0px;
     margin-bottom: 0px;
 }
 
 #chat-table{
+    
+
     margin-top: 1%;
     margin-left: 4%;
     background-color:rgba(255,0,255, 0.2); 
-    width:80%;
+     
+}
+
+#chat-window {
+    float:left;
+
+    overflow:   scroll;
+    position:   relative;
+}
+
+#chatText {
+    
+        overflow:   scroll;
+        text-align: right;
+        max-height: 400px;
+
 }
 
 
@@ -105,3 +125,9 @@ html,body
     border-right: solid 1px lightgray;
 }
 
+tr {
+  background-color: white;
+}
+tr:hover {
+  background-color: blue;
+}

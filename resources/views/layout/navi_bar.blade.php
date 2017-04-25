@@ -34,7 +34,7 @@
       <a class="btn navbar-btn create-post-button" href="/chatRooms">Chat Room</a>
 
       <!--Search bar-->
-      <form class="navbar-form navbar-right" role="form" method="POST" action="search">
+      <form class="navbar-form navbar-right" role="form" method="POST" action="search" style="margin-top: -45px">
         {!! csrf_field() !!}
         <div class="input-group search-panel">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
