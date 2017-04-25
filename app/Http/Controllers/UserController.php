@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Post;
 use App\Mail\Welcome;
+use App\Image;
 use Auth;
 use DB;
+use Input;
 
 class UserController extends Controller
 {
@@ -102,8 +104,18 @@ class UserController extends Controller
     {   
         
         $user = $request->user();
-
-        return view('user.editUserInfo',compact('user'));   
+        $path = Image::where('user_id','=',$user->id)->first();
+        
+        if($path != null){
+          $path = $path->url;
+        }else{
+          if($user->gender == 'Male'){
+            $path = '/files/male.png';
+          }else{
+            $path = '/files/female.png';
+          }
+        }
+        return view('user.editUserInfo',compact('user','path'));   
         
     }
 
@@ -118,7 +130,48 @@ class UserController extends Controller
                   'age' => $request['age'],
             ]);
 
+
         return redirect('editUserInfo');  
         
+    }
+
+    public function update_profile_picture(Request $request)
+    {
+        //Find ths user first
+        $user = $request->user();
+
+        //Set the uploaded file
+        $file = $request->file('image');
+
+        $temp = Image::where('user_id','=',$user->id)->first();
+        if($temp == null){
+            //Set file name with current time
+            $filename = date('Y-m-d-H:i:s')."-".$file->getClientOriginalName();
+            //Set directory to store file
+            $destinationPath = "../public/files/user".$user->id.$user->first_name."/images/"; // upload path
+            $request->file('image')->move($destinationPath, $filename); // uploading file to given path
+            $destinationPath = "/files/user".$user->id.$user->first_name."/images/".$filename;
+            Image::create([
+              'user_id'=>$user->id,
+              'url'=>$destinationPath,
+              'type'=>'Profile'
+            ]);
+            // Session::flash('success', 'Upload successfully');
+            $path = $destinationPath;
+            return redirect('editUserInfo');
+        }
+        else{
+            //Set file name with current time
+            $filename = date('Y-m-d-H:i:s')."-".$file->getClientOriginalName();
+            //Set directory to store file
+            $destinationPath = "../public/files/user".$user->id.$user->first_name."/images/"; // upload path
+            $request->file('image')->move($destinationPath, $filename); // uploading file to given path
+            $destinationPath = "/files/user".$user->id.$user->first_name."/images/".$filename;
+            $temp->url = $destinationPath;
+            $temp->save();
+            // Session::flash('success', 'Upload successfully');
+            $path = $destinationPath;
+            return redirect('editUserInfo');
+        }
     }
 }

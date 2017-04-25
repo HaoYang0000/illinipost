@@ -8,13 +8,13 @@ body {
 }
 #catImg {
   width:55%;
-    margin-right:5%;
+    
     float: left;
     float: left;
        position: relative;
 
-    -webkit-animation: mymovee 3s infinite; /* Safari 4.0 - 8.0 */
-    animation: mymovee 3s infinite;
+    -webkit-animation: mymovee 2s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymovee 2s infinite;
     
 }
 
@@ -54,6 +54,8 @@ body {
 }
 
 #facebook {
+  
+  float:left;
    position: relative;
     -webkit-animation: mymove 3s infinite; /* Safari 4.0 - 8.0 */
     animation: mymove 3s infinite;
