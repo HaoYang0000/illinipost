@@ -76,7 +76,7 @@ function retrieveChatMessages()
         dataType: 'JSON',
         success: function (data) {
             console.log(data);
-            $('#chat-window').prepend('<br><div style="text-align: left">'+data.message.message
+            $('#chat-window').prepend('<br><div style="text-align: left">'+data.message.sender_username+' said:'+data.message.message
                 +'</div><br>');
             
             $('#text').val('');
@@ -133,6 +133,7 @@ function sendMessage()
     
     if (text.length > 0)
     {
+        document.getElementById('text').value='';
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     
         $.ajax({
