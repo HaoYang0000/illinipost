@@ -11,6 +11,7 @@
     @endif
     <br>
     <button data-toggle="modal" data-target="#uploadPicture" style="margin-left: 125px;">Upload Picture</button>
+
     <form id="user_register" role="form" method="POST" action="editUserInfo">
         {{ csrf_field() }}
         <label name="firstname">First Name</label><br>
