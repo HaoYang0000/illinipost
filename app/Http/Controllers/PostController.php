@@ -17,9 +17,20 @@ class PostController extends Controller
 
     public function home_page()
     {
-        $word = Reply::all();
-        dd($word);
-        return view('post.home_page', compact('word'));
+        $word = Word::all();
+        $counter = 0;
+        $wordarray = array();
+
+        foreach ($word as $value) {
+            $counter += 1;
+            if($counter == 50){
+                break;
+            }
+            array_push($wordarray, $value);
+            
+        }
+        //dd($wordarray[0]);
+        return view('post.home_page', compact('wordarray'));
     }
     /**
     *   Function to create a post 
