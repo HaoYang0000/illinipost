@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Reply;
+
 
 class Post extends Model
 {
@@ -27,5 +29,14 @@ class Post extends Model
                            'content',
                            'category',
                            ];
-                      
+    
+
+    public function getOwner($id)
+    {
+        //dd($id->id);
+        $reply = Reply::where('Post_id', '=', $id->id)->get();
+        //dd($reply);
+        return $reply;
+    }
+
 }
