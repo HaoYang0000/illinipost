@@ -72,9 +72,10 @@
 		<div class="panel-heading">
     		<h3 class="panel-title">{{ $post->title }}</h3>
   		</div>
+  		<div id="userName" class="panel-body" style="overflow-y: auto;"> User Name:{{ $post->user_first_name }} {{ $post->user_last_name }}</div>
 		<div class="panel-body" style="overflow-y: auto;">{{ $post->content }}</div>
 		<div class="panel-body" style="overflow-y: auto;">{{ $post->category }}</div>
-		<div class="panel-body" style="overflow-y: auto;">{{ $post->user_first_name }} {{ $post->user_last_name }}</div>
+		
 		<div class="panel-body" style="overflow-y: auto; font-size: 10px;">Created Time: {{ $post->created_at }} &nbsp&nbsp Update Time:{{$post->updated_at}}</div>
 	  	<div class="panel-body" style="overflow-y: auto;">
 	  		<input type="button" name="delete" onclick="submit({{ $post->id }})" value="Delete"/> 
