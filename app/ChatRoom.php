@@ -16,7 +16,8 @@ class ChatRoom extends Model
                           'owner_id',
                           'roomname',
                            'username',
-                            
+                          'capacity',
+                          'num_viewed',
                            ];
 
     public function getOwner($id)
@@ -35,6 +36,10 @@ class ChatRoom extends Model
         	return false;
         }
         return false;
+    }
+
+    public function getActiveUserNum($roomname){
+      return count(ChatRoom::where('roomname','=',$roomname)->distinct()->get());
     }
 
 

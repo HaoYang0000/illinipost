@@ -45,7 +45,9 @@ nav#nav-bar-element a.create-post-button:active {
   transform: translateY(4px);
 }
 nav#nav-bar-element input.search-bar{
-    width:300px;
+    width:288px;
+
+
 }
 
 /* Login in bar*/
