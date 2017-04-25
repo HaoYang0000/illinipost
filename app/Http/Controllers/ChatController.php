@@ -13,6 +13,7 @@ class ChatController extends Controller
     public function check_chat_page(Request $request){
         
         $user = $request->user();
+        
         if($user == null){
             return view('layout.login_reminder');
         }else{
