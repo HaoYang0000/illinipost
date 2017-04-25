@@ -105,3 +105,9 @@ html,body
     border-right: solid 1px lightgray;
 }
 
+tr {
+  background-color: white;
+}
+tr:hover {
+  background-color: blue;
+}
