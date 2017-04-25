@@ -16,9 +16,7 @@ Route::get('/', function () {
     return view('index');
 });
 //Direct user to home
-Route::get('/home', function () {
-    return view('post.home_page');
-});
+Route::get('/home', 'PostController@home_page');
 
 //Direct user to create a post 
 Route::get('/create_post', 'PostController@create_post_page');
@@ -42,6 +40,8 @@ Route::get('/check_post_f_page', 'PostController@check_post_f_page');
 //Edit user information
 Route::get('/editUserInfo', 'UserController@get_user_info');
 Route::post('/editUserInfo', 'UserController@update_user_info');
+Route::post('upload_profile_picture','UserController@update_profile_picture');
+
 //email
 
 

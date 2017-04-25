@@ -4,6 +4,13 @@
 <!-- Under directory illinipost\public\css -->
 <link rel="stylesheet" href="{{ URL::asset('/css/post_page/post-page.css') }}">
 <div class = "edit">
+    @if($path != null)
+        <img src="{{$path}}" style="width:150px;height:150px;">
+    @else
+        <img src="/files/male.png" style="width:150px;height:150px;">
+    @endif
+    <br>
+    <button data-toggle="modal" data-target="#uploadPicture">Upload Picture</button>
     <form id="user_register" role="form" method="POST" action="editUserInfo">
         {{ csrf_field() }}
         <label name="firstname">First Name</label><br>
@@ -20,5 +27,29 @@
         <input type="submit" value="update" style="width: 120px; height: 30px;background-color:#59ffa3;"/>
     </form>
 </div>
+
+<!--  Pop up start -->
+<div class="modal fade" id="uploadPicture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Upload a new picture</h4>
+              </div>
+              <div class="modal-body">
+                     <form action="upload_profile_picture" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        Profile photo:
+                        <br />
+                        <input type="file" name="image" multiple />
+                        <br />
+                        <input type="submit" value="Upload" />
+                    </form>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  Pop up end -->
                     
 @endSection
