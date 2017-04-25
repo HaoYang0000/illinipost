@@ -11,7 +11,6 @@
        <h1 id="greeting" >Hello, <span id="username">{{$username}}</span></h1> 
 
         <div id="chat-window" class="col-lg-12"> 
-            
         </div>
 
         </div>
@@ -128,7 +127,7 @@ function sendMessage()
 {
     
     var text = $('#text').val();
-    $('#chat-window').append('<div style="text-align: right">'+"I said "+":"+ '</br>'+text
+    $('#chat-window').prepend('<div id="chatText">'+ '<br>'+"I said "+":"+ '</br>'+text
                 +'</div>');
 
     
