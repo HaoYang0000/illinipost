@@ -28,9 +28,9 @@ class ChatController extends Controller
         if($user == null){
             return view('layout.login_reminder');
         }else{
-            $room = ChatRoom::where('roomname','=',$roomname)->first();
-            $temp = ChatRoom::where('roomname','=',$roomname, 'and','username','=',$username)->first();
 
+            $temp = ChatRoom::where('roomname','=',$roomname, 'and','username','=',$username)->first();
+            
             if ($temp == null){
                 ChatRoom::create([
                     'room_id' => $room->room_id,
@@ -38,8 +38,15 @@ class ChatController extends Controller
                     'username' => $user->firstName,
                     
                 ]);
+            }else{
+                $rooms = ChatRoom::where('roomname','=',$roomname)->first();
+                foreach ($rooms as $room) {
+                    $room->num_viewed = $room->num_viewed + 1;
+                    $room->save();
+                }
             }
-            
+
+
             $username = $user->firstName;
            
 
@@ -150,6 +157,7 @@ class ChatController extends Controller
                 'owner_id'=> $user->id,
                 'roomname' => $request->input('room_name'),
                 'username' => $user->firstName,
+                'capacity' => $request->input('room_capacity')
             ]);
 
             $chatroom = ChatRoom::where('owner_id','!=',null)->get();
@@ -163,6 +171,17 @@ class ChatController extends Controller
 
     public function delete_room(Request $request){
         ChatRoom::where('id', '=', $request['room_id'])->delete();
+        return redirect('/chatRooms');
+    }
+
+    public function edit_room(Request $request){
+        $rooms = ChatRoom::where('id', '=', $request['edit_room_id'])->get();
+
+        foreach ($rooms as $room) {
+            $room->capacity = $request['edit_room_capacity'];
+            $room->roomname = $request['edit_room_name'];
+            $room->save();
+        }
         return redirect('/chatRooms');
     }
 }
