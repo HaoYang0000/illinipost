@@ -81,10 +81,10 @@ function retrieveChatMessages()
             
             $('#text').val('');
             notTyping();
+        },
+        error: function (data) {
+            //console.log('Error in retrieve chat message:', data);
         }
-        // error: function (data) {
-        //     console.log('Error in retrieve chat message:', data);
-        // }
     });
     // $.post('retrieveChatMessages', {username: username, roomname: roomname}, function(data)
     // {
@@ -109,7 +109,7 @@ function retrieveTypingStatus()
           
         },
         error: function (data) {
-            console.log('Error in retrieveTypingStatus:', data);
+           // console.log('Error in retrieveTypingStatus:', data);
         }
         
     });
@@ -146,7 +146,7 @@ function sendMessage()
                 
             },
             error: function (data) {
-                console.log('Error: in send Message', data);
+               // console.log('Error: in send Message', data);
             }
         });
         // $.post('sendMessage', {text: text, username: user_name, roomname: room_name}, function()
@@ -171,7 +171,7 @@ function isTyping()
             console.log(data);
         },
         error: function (data) {
-            console.log('Error: in is typing', data);
+            //console.log('Error: in is typing', data);
         }
     });
 }
@@ -189,7 +189,7 @@ function notTyping()
             console.log(data);
         },
         error: function (data) {
-            console.log('Error: in not typing', data);
+            //console.log('Error: in not typing', data);
         }
     });
     //$.post('/notTyping', {username: user_name,roomname: room_name});
