@@ -75,16 +75,24 @@
 		<div class="panel-body" style="overflow-y: auto;">{{ $post->content }}</div>
 		<div class="panel-body" style="overflow-y: auto;">{{ $post->category }}</div>
 		<div class="panel-body" style="overflow-y: auto;">{{ $post->user_first_name }} {{ $post->user_last_name }}</div>
-		<div class="panel-body" style="overflow-y: auto;">Created Time: {{ $post->created_at }} &nbsp&nbsp Update Time:{{$post->updated_at}}</div>
-	  	<input type="button" name="delete" onclick="submit({{ $post->id }})" value="Delete"/> 
-	  	<input type="button" name="reply" onclick="replySubmit({{ $post->id }})" value="Reply"/> 
-
+		<div class="panel-body" style="overflow-y: auto; font-size: 10px;">Created Time: {{ $post->created_at }} &nbsp&nbsp Update Time:{{$post->updated_at}}</div>
+	  	<div class="panel-body" style="overflow-y: auto;">
+	  		<input type="button" name="delete" onclick="submit({{ $post->id }})" value="Delete"/> 
+	  		<input type="button" name="reply" onclick="replySubmit({{ $post->id }})" value="Reply"/>
+	  	</div>
+	  	<div class="panel-heading">
+    		<h3 class="panel-title">Comments</h3>
+  		</div>
+	  	@foreach ($post->getOwner($post) as $reply)
+	  		<div class="panel-body" style="overflow-y: auto;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{$reply->content}}</div>
+			<div class='panel-body' style="overflow-y: auto; border-bottom: 1px dotted grey; font-size: 10px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{$reply->updated_at}}</div>
+		@endforeach
 		<form id="delete_post_form" method="post" action="delete_post">
 			{!! csrf_field() !!}
 			<input id="post_id" name="post_id" hidden> 
         </form>
 
-        <form id="replypost_form" method="post" action="reply_post">
+        <form id="replypost_form" method="get" action="reply_post">
 			{!! csrf_field() !!}
 			<input id="reply_id" name="reply_id" hidden> 
         </form>

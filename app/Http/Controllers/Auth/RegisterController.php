@@ -74,10 +74,6 @@ class RegisterController extends Controller
             'gender'=> $data['gender'],
             'firstName'=> $data['firstName'],
             'lastName'=> $data['lastName'],
-            // 'age' => $data['age'],
-            // 'gender'=> $data['gender'],
-            // 'firstName'=> $data['firstName'],
-            // 'lastName'=> $data['lastName'],
         ]);
         
         //return redirect()->home();  
