@@ -18,6 +18,15 @@ public class WordSorting {
 		//Read file
 		BufferedReader br = new BufferedReader(new FileReader(
 				"result_reddit.csv"));
+		BufferedReader br2 = new BufferedReader(new FileReader(
+				"stop-words.txt"));
+		ArrayList stopWords = new ArrayList<String>();
+		
+		String temp = null;
+		while((temp = br2.readLine()) != null){
+			stopWords.add(temp);
+		}
+		
 
 		//Mapping 
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
@@ -30,11 +39,13 @@ public class WordSorting {
 			for(int i=0;i<tokens.length;i++){
 				tokens[i] = removeSpecialChar(tokens[i]);
 				//out.write(""+tokens[i].toLowerCase()+" "+tokens[i+1].toLowerCase()+" "+tokens[i+2].toLowerCase()+"\n");
-				if(map.get(tokens[i]) != null){
-					map.put(tokens[i],map.get(tokens[i])+1);
-				}
-				else{
-					map.put(tokens[i],1);
+				if(!isStopWords(tokens[i],stopWords)){
+					if(map.get(tokens[i]) != null){
+						map.put(tokens[i],map.get(tokens[i])+1);
+					}
+					else{
+						map.put(tokens[i],1);
+					}
 				}
 			}
 		}
@@ -57,6 +68,7 @@ public class WordSorting {
 		PrintWriter out = new PrintWriter(f);
 		
 		for(int i=0;i<word_list.size();i++){
+			System.out.println("INSERT INTO `illinipost_DB`.`Words` (`word`, `num`) VALUES ('"+word_list.get(i).word+"', '"+word_list.get(i).num+"');\n");
 			out.write("INSERT INTO `illinipost_DB`.`Words` (`word`, `num`) VALUES ('"+word_list.get(i).word+"', '"+word_list.get(i).num+"');\n");
 		}
 		out.close();
@@ -77,6 +89,15 @@ public class WordSorting {
 			s=s.replaceAll("\\"+temp, "");
 		}
 		return s;
+	}
+	
+	public static boolean isStopWords(String s, ArrayList<String> wordList){
+		for(int i=0;i<wordList.size();i++){
+			if(wordList.get(i).equalsIgnoreCase(s)){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private static class Word implements Comparator<Word>{
