@@ -10,7 +10,7 @@
         <h1 id="chatroom" >Chat Room:<span id="roomname">{{$roomname}}</span></h1>
        <h1 id="greeting" >Hello, <span id="username">{{$username}}</span></h1> 
 
-        <div id="chat-window" class="col-lg-12">
+        <div id="chat-window" class="col-lg-12"> 
             
         </div>
 
@@ -77,7 +77,7 @@ function retrieveChatMessages()
         dataType: 'JSON',
         success: function (data) {
             console.log(data);
-            $('#chat-window').append('<br><div style="text-align: right">'+data.message.message
+            $('#chat-window').prepend('<br><div style="text-align: left">'+data.message.message
                 +'</div><br>');
             
             $('#text').val('');
@@ -107,6 +107,7 @@ function retrieveTypingStatus()
         success: function (data) {
             console.log(data);
             $('#typingStatus').html(data.user+' is typing');
+          
         },
         error: function (data) {
             console.log('Error in retrieveTypingStatus:', data);
@@ -125,8 +126,9 @@ function retrieveTypingStatus()
 
 function sendMessage()
 {
+    
     var text = $('#text').val();
-    $('#chat-window').append('<div style="text-align: left">'+text
+    $('#chat-window').append('<div style="text-align: right">'+"I said "+":"+ '</br>'+text
                 +'</div>');
 
     

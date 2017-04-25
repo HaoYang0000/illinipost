@@ -22,6 +22,7 @@ class CreateChatRoomTable extends Migration
             $table->string('username');
             $table->boolean('user_is_typing')->default(false);
             $table->timestamps();
+            $table->string('color')->default(0); 
         });
     }
 
