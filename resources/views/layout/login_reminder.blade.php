@@ -18,7 +18,7 @@ Please log in ε٩(๑> ₃ <)۶з
 <div id ="NB" style="font-size:30px;"> Tip: click the login button at the top right corner to log in</div>
  
 </span>
-
-<img id="facebook" src="https://s-media-cache-ak0.pinimg.com/originals/24/07/ab/2407ab2b97c499c3b00fb008dee63019.gif">
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+<img id="facebook" src="https://s-media-cache-ak0.pinimg.com/originals/24/07/ab/2407ab2b97c499c3b00fb008dee63019.gif" style="height:300px;">
 
 @endSection
