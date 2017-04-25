@@ -49,16 +49,15 @@ Route::post('/search','PostController@search');
 
 //Chat 
 Route::get('/chatRooms','ChatController@check_chat_page');
-Route::get('/chat/{roomname}/{username}', function($roomname,$username)
-{
-	return view('chat.chat',compact('roomname','username'));
-	//return View::make('chat.chat')->with('username',$username);
-});
+Route::get('/chat/{roomname}/{username}', 'ChatController@enter_room');
 Route::post('/chat/{roomname}/sendMessage','ChatController@sendMessage');
 Route::post('/chat/{roomname}/isTyping', 'ChatController@isTyping');
 Route::post('/chat/{roomname}/notTyping', 'ChatController@notTyping');
 Route::post('/chat/{roomname}/retrieveChatMessages', 'ChatController@retrieveChatMessages');
 Route::post('/chat/{roomname}/retrieveTypingStatus', 'ChatController@retrieveTypingStatus');
 Route::post('create_chat_room','ChatController@createNewRoom');
+Route::post('delete_room','ChatController@delete_room');
+Route::post('edit_chat_room','ChatController@edit_room');
+
 
 Auth::routes();
