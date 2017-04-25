@@ -39,7 +39,7 @@ class ChatController extends Controller
                     
                 ]);
             }else{
-                $rooms = ChatRoom::where('roomname','=',$roomname)->first();
+                $rooms = ChatRoom::where('roomname','=',$roomname)->get();
                 foreach ($rooms as $room) {
                     $room->num_viewed = $room->num_viewed + 1;
                     $room->save();
