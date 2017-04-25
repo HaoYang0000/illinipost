@@ -13,6 +13,7 @@ class ChatMessage extends Model
                            'sender_username',
                            'message',
                            'receiver_username',
+                           'read',
                         
                            ];
 }
