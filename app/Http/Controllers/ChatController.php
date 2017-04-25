@@ -95,21 +95,21 @@ class ChatController extends Controller
         $username = $request->input('username');
         $roomname = $request->input('roomname');
 
-        // $room = ChatRoom::where('username', '=', $username,'and', 'roomname', '=', $roomname)->first();
+        $room = ChatRoom::where('username', '=', $username,'and', 'roomname', '=', $roomname)->first();
         
-        // $message = ChatMessage::where('sender_username', '!=', $username,'and', 'roomname', '=', $roomname)->where('read', '=', false)->first();
+        $message = ChatMessage::where('sender_username', '!=', $username,'and', 'roomname', '=', $roomname)->where('read', '=', false)->first();
 
 
-        // if (count($message) > 0)
-        // {
-        //     $message->read = true;
-        //     $message->save();
-        //     $response = array(
-        //     'status' => 'success',
-        //     'message' => $message,
-        //     );
-        //     return $response;
-        // }
+        if (count($message) > 0)
+        {
+            $message->read = true;
+            $message->save();
+            $response = array(
+            'status' => 'success',
+            'message' => $message,
+            );
+            return $response;
+        }
     }
 
     public function retrieveTypingStatus(Request $request)

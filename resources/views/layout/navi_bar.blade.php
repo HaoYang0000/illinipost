@@ -26,8 +26,8 @@
               <li class="nav-dropd-text-background"><a href="#">Page 1-3</a></li>
           </ul>
          </li>
-         <li class="nav-text-background"><a class="nav-text-one" href="#">ACADEMIC</a></li>
-         <li class="nav-text-background"><a class="nav-text-one" href="#">FOOD</a></li>
+         <li class="nav-text-background"><a class="nav-text-one" href="/check_post_a">ACADEMIC</a></li>
+         <li class="nav-text-background"><a class="nav-text-one" href="/check_post_f">FOOD</a></li>
       </ul>
       <a class="btn navbar-btn create-post-button" href="/create_post">Make a post</a>
       <a class="btn navbar-btn create-post-button" href="/check_post">Check posts</a>

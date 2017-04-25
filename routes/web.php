@@ -28,7 +28,11 @@ Route:: post('/reply_post', 'PostController@reply_post_page');
 //Direct user to check all post 
 Route::get('/check_post', 'PostController@check_post_page');
 Route::get('/check_post_page', 'PostController@check_post_page');
-
+//academic
+Route::get('/check_post_a', 'PostController@check_post_a_page');
+Route::get('/check_post_a_page', 'PostController@check_post_a_page');
+Route::get('/check_post_f', 'PostController@check_post_f_page');
+Route::get('/check_post_f_page', 'PostController@check_post_f_page');
 //User login
 // Route::post('/user_login', 'UserController@login');
 //Route::post('/user_register', 'RegisterController@create');
@@ -45,14 +49,17 @@ Route::post('/search','PostController@search');
 
 //Chat 
 Route::get('/chatRooms','ChatController@check_chat_page');
-Route::get('/chat/{roomname}/{username}', 'ChatController@enter_room');
+Route::get('/chat/{roomname}/{username}', function($roomname,$username)
+{
+	return view('chat.chat',compact('roomname','username'));
+	//return View::make('chat.chat')->with('username',$username);
+});
 Route::post('/chat/{roomname}/sendMessage','ChatController@sendMessage');
 Route::post('/chat/{roomname}/isTyping', 'ChatController@isTyping');
 Route::post('/chat/{roomname}/notTyping', 'ChatController@notTyping');
 Route::post('/chat/{roomname}/retrieveChatMessages', 'ChatController@retrieveChatMessages');
 Route::post('/chat/{roomname}/retrieveTypingStatus', 'ChatController@retrieveTypingStatus');
-Route::post('/create_chat_room', 'ChatController@createNewRoom');
-//Delete chat room
+Route::post('create_chat_room','ChatController@createNewRoom');
 Route::post('delete_room','ChatController@delete_room');
 
 Auth::routes();
