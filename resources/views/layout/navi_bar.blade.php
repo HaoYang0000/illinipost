@@ -17,7 +17,7 @@
   
       <ul class = "nav navbar-nav">
          <li class="nav-text-background"><a class="nav-text-one" href="/home">HOME</a></li> 
-         <li class="nav-text-background dropdown">
+         <!-- <li class="nav-text-background dropdown">
           <a class="dropdown-toggle nav-text-one" data-toggle="dropdown" href="#">Q&A
           <span class="caret"></span></a>
           <ul class="dropdown-menu" id="dropd-menu">
@@ -25,7 +25,7 @@
               <li class="nav-dropd-text-background"><a href="#">Page 1-2</a></li>
               <li class="nav-dropd-text-background"><a href="#">Page 1-3</a></li>
           </ul>
-         </li>
+         </li> -->
          <li class="nav-text-background"><a class="nav-text-one" href="/check_post_a">ACADEMIC</a></li>
          <li class="nav-text-background"><a class="nav-text-one" href="/check_post_f">FOOD</a></li>
       </ul>
