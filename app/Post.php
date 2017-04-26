@@ -31,10 +31,10 @@ class Post extends Model
                            ];
     
 
-    public function getOwner($id)
+    public function getOwner($post)
     {
         //dd($id->id);
-        $reply = Reply::where('Post_id', '=', $id->id)->get();
+        $reply = Reply::where('Post_id', '=', $post->id)->get();
         //dd($reply);
         return $reply;
     }

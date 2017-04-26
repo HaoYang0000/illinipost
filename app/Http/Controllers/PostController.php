@@ -265,7 +265,7 @@ class PostController extends Controller
 
     public function search(Request $request){
         $filter_type = 1; 
-
+        $sort_type = 1; 
         if($request['search_param'] == 'all'){
             $posts = DB::table('posts')->where('title', 'like', '%'.$request['content'].'%')->get();
         }
@@ -285,7 +285,18 @@ class PostController extends Controller
             $posts = DB::table('posts')->where('user_first_name', 'like', '%'.$request['content'].'%', 'or', 'user_last_name', 'like', '%'.$request['content'].'%')->get();
         }
 
-        return view('post.post_page',compact('posts','filter_type'));
+        return view('post.post_page',compact('posts','filter_type','sort_type'));
+    }
+
+    public function search_keyword(Request $request,$content){
+        $filter_type = 1; 
+        $sort_type = 1; 
+
+        
+        $posts = DB::table('posts')->where('content', 'like', '%'.$content.'%')->get();
+        
+
+        return view('post.post_page_a',compact('posts','filter_type','sort_type'));
     }
 
 }
