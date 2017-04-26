@@ -48,6 +48,7 @@ Route::post('upload_profile_picture','UserController@update_profile_picture');
 
 //Search bar
 Route::post('/search','PostController@search');
+Route::get('/search/{content}','PostController@search_keyword');
 
 //Chat 
 Route::get('/chatRooms','ChatController@check_chat_page');
