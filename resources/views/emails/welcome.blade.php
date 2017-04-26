@@ -7,7 +7,6 @@
 </head>
 <body>
 	
-		<h1>wmtdhe</h1>
-		<p>aaaaaa</p>
+		<h1>Hi, Welcome to Illinipost!</h1>
 </body>
 </html>

@@ -1,5 +1,6 @@
 nav#nav-bar-element{
 	background-color: #003d66;
+  z-index:10;
 }
 nav#nav-bar-element a.navbar-brand{
     color: #ff6600;

@@ -12,9 +12,7 @@
 */
 
 //Direct to the default page
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'PostController@home_page');
 //Direct user to home
 Route::get('/home', 'PostController@home_page');
 

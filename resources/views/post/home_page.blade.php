@@ -52,7 +52,6 @@
   <script type="text/javascript" src="phaser.min.js"></script>
   <script type="text/javascript" src="fun.js"></script>
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="jquery.mousewheel.min.js"></script>
     <script type="text/javascript" src="jquery.tagsphere.min.js"></script>
     <script type="text/javascript">
@@ -93,32 +92,10 @@
 <div style="margin-left: 50%; margin-top: 0%;right: 10%;">
     <div id="ts1" style="width:450px; height:450px;background-color: #FFFFFF; opacity: 1;">
         <ul>
-      <li><a href="search/{{ $wordarray[0]->word }}" rel="50">{{ $wordarray[0]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[1]->word }}" rel="40">{{ $wordarray[1]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[2]->word }}" rel="35">{{ $wordarray[2]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[3]->word }}" rel="30">{{ $wordarray[3]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[4]->word }}" rel="25">{{ $wordarray[4]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[5]->word }}" rel="16">{{ $wordarray[5]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[6]->word }}" rel="15">{{ $wordarray[6]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[7]->word }}" rel="14">{{ $wordarray[7]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[8]->word }}" rel="13">{{ $wordarray[8]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[9]->word }}" rel="12">{{ $wordarray[9]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[10]->word }}" rel="11">{{ $wordarray[10]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[11]->word }}" rel="11">{{ $wordarray[11]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[12]->word }}" rel="11">{{ $wordarray[12]->word }}/a></li>
-      <li><a href="search/{{ $wordarray[13]->word }}" rel="11">{{ $wordarray[13]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[14]->word }}" rel="10">{{ $wordarray[14]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[15]->word }}" rel="10">{{ $wordarray[15]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[16]->word }}" rel="10">{{ $wordarray[16]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[17]->word }}" rel="10">{{ $wordarray[17]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[18]->word }}" rel="10">{{ $wordarray[18]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[19]->word }}" rel="10">{{ $wordarray[19]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[20]->word }}" rel="10">{{ $wordarray[20]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[21]->word }}" rel="10">{{ $wordarray[21]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[22]->word }}" rel="8">{{ $wordarray[22]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[23]->word }}" rel="7">{{ $wordarray[23]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[24]->word }}" rel="6">{{ $wordarray[24]->word }}</a></li>
-      <li><a href="search/{{ $wordarray[25]->word }}" rel="5">{{ $wordarray[25]->word }}</a></li>
+        @foreach( $wordarray as $word)
+          <li><a href="search/{{ $word->word }}" rel="{{ $word->num }}">{{ $word->word }}</a></li>
+        @endforeach
+      
         </ul>
     </div>
     <h1 style="margin-left: -80%; margin-top: -40%;"> What is everyone talking about today?</h1>

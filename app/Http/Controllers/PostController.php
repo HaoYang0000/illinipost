@@ -293,7 +293,7 @@ class PostController extends Controller
         $sort_type = 1; 
 
         
-        $posts = DB::table('posts')->where('content', 'like', '%'.$content.'%')->get();
+        $posts = DB::table('posts')->crossJoin('users')->where('content', 'like', '%'.$content.'%')->orWhere('firstName', 'like', '%'.$content.'%')->get();
         
 
         return view('post.post_page_a',compact('posts','filter_type','sort_type'));
