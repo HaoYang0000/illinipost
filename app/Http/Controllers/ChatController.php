@@ -59,7 +59,7 @@ class ChatController extends Controller
             $username = $user->firstName;
            
 
-            return view('chat.chat',compact('roomname','username', 'color'));
+            return view('chat.chat',compact('roomname','username'));
         }
     }
 
